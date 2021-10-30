@@ -14,6 +14,10 @@ export default class VelcroComponent extends Component {
   velcroTarget = modifier((element) => {
     this._targetElement = element;
     this.resizeObserver.observe(element, this._updatePopper);
+
+    return () => {
+      this.resizeObserver.unobserve(element, this._updatePopper);
+    };
   });
 
   velcro = modifier((element) => {
@@ -21,6 +25,10 @@ export default class VelcroComponent extends Component {
 
     this._createPopper();
     this.resizeObserver.observe(element, this._updatePopper);
+
+    return () => {
+      this.resizeObserver.unobserve(element, this._updatePopper);
+    };
   });
 
   @action
