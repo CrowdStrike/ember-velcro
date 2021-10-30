@@ -4979,6 +4979,14 @@ ember-qunit@^5.1.4:
     silent-error "^1.1.1"
     validate-peer-dependencies "^1.2.0"
 
+ember-resize-observer-service@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/ember-resize-observer-service/-/ember-resize-observer-service-0.4.5.tgz#d76153e807d302dd900f6120b33d1f1949964c94"
+  integrity sha512-eL9X+HKARogmv7hkXhVe+NJ6FTG3p2tylJVFDFCvYq/b6LISGtY8SfJj070x8iIeuzKvxRrT6iPe2fQ59OqoLQ==
+  dependencies:
+    ember-cli-babel "^7.26.6"
+    ember-cli-htmlbars "^5.7.1"
+
 ember-resolver@^8.0.2:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-8.0.3.tgz#40f243aa58281bf195c695fe84a6b291e204690a"
