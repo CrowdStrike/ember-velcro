@@ -1,5 +1,6 @@
-{{page-title "Dummy"}}
+{{page-title "Ember Velcro"}}
 
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<Velcro as |velcroTarget velcro|>
+  <p {{velcroTarget}}>Velcro target</p>
+  <p {{velcro}}>Velcro</p>
+</Velcro>
