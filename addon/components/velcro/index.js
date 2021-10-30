@@ -27,6 +27,7 @@ export default class VelcroComponent extends Component {
     this.resizeObserver.observe(element, this._updatePopper);
 
     return () => {
+      this._popper.destroy();
       this.resizeObserver.unobserve(element, this._updatePopper);
     };
   });
