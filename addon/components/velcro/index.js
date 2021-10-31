@@ -50,17 +50,25 @@ export default class VelcroComponent extends Component {
   _popperOptions() {
     return {
       placement: this.args.placement ?? 'bottom',
-      modifiers: [
-        {
-          name: 'offset',
-          options: {
-            offset: [
-              parseInt(this.args.offsetX, 10) ?? 0,
-              parseInt(this.args.offsetY, 10) ?? 0,
-            ],
-          },
-        },
-      ],
+      modifiers: this._modifiers,
+      strategy: this.args.strategy ?? 'absolute',
+      onFirstUpdate: this.args.onFirstUpdate?.(),
+    };
+  }
+
+  get _modifiers() {
+    return [this._offsetModifier, ...(this.args.modifiers ?? [])];
+  }
+
+  get _offsetModifier() {
+    return {
+      name: 'offset',
+      options: {
+        offset: [
+          parseInt(this.args.offsetX, 10) ?? 0,
+          parseInt(this.args.offsetY, 10) ?? 0,
+        ],
+      },
     };
   }
 }
