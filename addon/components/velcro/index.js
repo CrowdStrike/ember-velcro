@@ -34,11 +34,33 @@ export default class VelcroComponent extends Component {
 
   @action
   _createPopper() {
-    this._popper = createPopper(this._targetElement, this._popoverElement);
+    this._popper = createPopper(
+      this._targetElement,
+      this._popoverElement,
+      this._popperOptions
+    );
   }
 
   @action
   _updatePopper() {
     this._popper.update();
+  }
+
+  @action
+  _popperOptions() {
+    return {
+      placement: this.args.placement ?? 'bottom',
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [
+              parseInt(this.args.offsetX, 10) ?? 0,
+              parseInt(this.args.offsetY, 10) ?? 0,
+            ],
+          },
+        },
+      ],
+    };
   }
 }
