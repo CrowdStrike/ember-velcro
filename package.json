@@ -1,15 +1,17 @@
 {
-  "name": "ember-velcro",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "@camskene/ember-velcro",
+  "version": "0.6.3",
+  "description": "Ember Velcro sticks one element to another with PopperJS.",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://camskene@github.com/camskene/ember-velcro.git"
+  },
   "license": "MIT",
-  "author": "",
+  "author": "Cam Skene",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "scripts": {
@@ -77,5 +79,10 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  }
+  },
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/camskene/ember-velcro/issues"
+  },
+  "homepage": "https://github.com/camskene/ember-velcro#readme"
 }

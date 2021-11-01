@@ -1,1 +1,1 @@
-export { default } from 'ember-velcro/components/velcro';
+export { default } from '@camskene/ember-velcro/components/velcro';
