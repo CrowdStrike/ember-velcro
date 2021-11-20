@@ -65,8 +65,8 @@ export default class VelcroComponent extends Component {
       name: 'offset',
       options: {
         offset: [
-          parseInt(this.args.offsetX, 10) ?? 0,
-          parseInt(this.args.offsetY, 10) ?? 0,
+          parseInt(this.args.offsetSkidding, 10) ?? 0,
+          parseInt(this.args.offsetDistance, 10) ?? 0,
         ],
       },
     };

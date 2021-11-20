@@ -74,16 +74,16 @@ module('Integration | Component | velcro', function (hooks) {
   });
 
   module('offset', function () {
-    test('can pass in x', async function (assert) {
-      this.offsetX = 10;
+    test('can pass in skidding', async function (assert) {
+      this.offsetSkidding = 10;
 
       await render(hbs`
-        {{!-- render 2 Velcro's atop the other, pass one an offsetX and compare the left values --}}
+        {{!-- render 2 Velcro's atop the other, pass one a skidding offset and compare the left values --}}
         <Velcro @placement="bottom-start" as |velcroTarget velcro|>
           <div {{velcroTarget}}>VelcroTarget</div>
           <div id="velcro1" {{velcro}}>Velcro</div>
         </Velcro>
-        <Velcro @offsetX={{this.offsetX}} @placement="bottom-start" as |velcroTarget velcro|>
+        <Velcro @offsetSkidding={{this.offsetSkidding}} @placement="bottom-start" as |velcroTarget velcro|>
           <div {{velcroTarget}}>VelcroTarget</div>
           <div id="velcro2" {{velcro}}>Velcro</div>
         </Velcro>
@@ -96,23 +96,23 @@ module('Integration | Component | velcro', function (hooks) {
       // getBoundingClientRect are accurate
       document.querySelector('#ember-testing').style.transform = 'scale(1)';
       assert.strictEqual(
-        velcro1.getBoundingClientRect().left + this.offsetX,
+        velcro1.getBoundingClientRect().left + this.offsetSkidding,
         velcro2.getBoundingClientRect().left
       );
     });
 
-    test('can pass in y', async function (assert) {
-      this.offsetY = 10;
+    test('can pass in distance', async function (assert) {
+      this.offsetDistance = 10;
 
       await render(hbs`
-        {{!-- render 2 Velcro's side by side, pass one an offsetY and compare the values --}}
+        {{!-- render 2 Velcro's side by side, pass one a distance offset and compare the values --}}
         {{!-- template-lint-disable no-inline-styles --}}
         <div style="display: flex">
           <Velcro as |velcroTarget velcro|>
             <div {{velcroTarget}}>VelcroTarget</div>
             <div id="velcro1" {{velcro}}>Velcro</div>
           </Velcro>
-          <Velcro @offsetY={{this.offsetY}} as |velcroTarget velcro|>
+          <Velcro @offsetDistance={{this.offsetDistance}} as |velcroTarget velcro|>
             <div {{velcroTarget}}>VelcroTarget</div>
             <div id="velcro2" {{velcro}}>Velcro</div>
           </Velcro>
@@ -126,7 +126,7 @@ module('Integration | Component | velcro', function (hooks) {
       // getBoundingClientRect are accurate
       document.querySelector('#ember-testing').style.transform = 'scale(1)';
       assert.strictEqual(
-        velcro1.getBoundingClientRect().top + this.offsetY,
+        velcro1.getBoundingClientRect().top + this.offsetDistance,
         velcro2.getBoundingClientRect().top
       );
     });
