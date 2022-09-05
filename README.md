@@ -7,8 +7,6 @@ The popover is repositioned if the target element resizes and the popover itself
 
 The Velcro component accepts the same options as PopperJS.
 
-For convenience, Velcro also accepts `@offsetSkidding` and `@offsetDistance` arguments.
-
 API
 ------------------------------------------------------------------------------
 
