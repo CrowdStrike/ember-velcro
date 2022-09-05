@@ -3,117 +3,143 @@ import { setupRenderingTest } from 'ember-qunit';
 import { find, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-function velcroElement() {
-  return find('#velcro');
-}
-
 module('Integration | Component | velcro', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it creates a popper', async function (assert) {
+  test('it renders', async function (assert) {
     await render(hbs`
-      <Velcro as |velcroTarget velcro|>
-        <div {{velcroTarget}}>VelcroTarget</div>
-        <div id="velcro" {{velcro}}>Velcro</div>
+      <Velcro as |velcroReference velcroElement velcroData|>
+        <div id="reference" {{velcroReference}} style="width: 200px; height: 40px">
+          {{velcroData.rects.reference.width}}
+          {{velcroData.rects.reference.height}}
+        </div>
+        <div id="floating" {{velcroElement}} style="width: 200px; height: 400px">
+          {{velcroData.rects.floating.width}}
+          {{velcroData.rects.floating.height}}
+        </div>
       </Velcro>
     `);
 
-    assert.dom(velcroElement()).hasAttribute('data-popper-placement');
+    assert
+      .dom('#reference')
+      .hasText('200 40', 'reference element has expected dimensions');
+    assert
+      .dom('#floating')
+      .hasText('200 400', 'floating element has expected dimensions');
+    assert.dom('#floating').hasAttribute('style');
+    assert.dom('#floating').hasStyle({
+      position: 'fixed',
+      top: '0px',
+      left: '0px',
+    });
+    assert.ok(
+      find('#floating').style.transform.includes('translate3d'),
+      'floating element is positioned with translate3d'
+    );
   });
 
-  module('placement', function () {
-    test('has default value', async function (assert) {
+  module('@middleware', function () {
+    test('it yields position and middleware data', async function (assert) {
       await render(hbs`
-        <Velcro as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro" {{velcro}}>Velcro</div>
+          <Velcro as |velcroReference velcroElement velcroData|>
+            <div id="reference" {{velcroReference}}>
+              {{object-keys velcroData}}
+            </div>
+            <div id="floating" {{velcroElement}}>VelcroElement</div>
+          </Velcro>
+        `);
+
+      assert
+        .dom('#reference')
+        .hasText(
+          'x,y,initialPlacement,placement,strategy,middlewareData,rects,platform,elements',
+          'has expected metadata'
+        );
+    });
+
+    test('it has expected default middleware defined', async function (assert) {
+      await render(hbs`
+        <Velcro as |velcroReference velcroElement velcroData|>
+          <div id="reference" {{velcroReference}}>
+            {{object-keys velcroData.middlewareData}}
+          </div>
+          <div id="floating" {{velcroElement}}>VelcroElement</div>
         </Velcro>
       `);
 
-      assert.strictEqual(velcroElement().dataset.popperPlacement, 'bottom');
+      assert
+        .dom('#reference')
+        .hasText('offset,flip,shift,hide', 'has expected middleware');
+    });
+  });
+
+  module('@placement', function () {
+    test('has default value', async function (assert) {
+      await render(hbs`
+        <Velcro as |velcroReference velcroElement velcroData|>
+          <div {{velcroReference}}>velcroReference</div>
+          <div id="floating" {{velcroElement}}>{{velcroData.placement}}</div>
+        </Velcro>
+      `);
+
+      assert.dom('#floating').hasText('bottom');
     });
 
     test('has argument value', async function (assert) {
-      this.placement = 'bottom-start';
-
       await render(hbs`
-        <Velcro @placement={{this.placement}} as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro" {{velcro}}>Velcro</div>
+        <Velcro @placement="bottom-start" as |velcroReference velcroElement velcroData|>
+          <div {{velcroReference}}>velcroReference</div>
+          <div id="floating" {{velcroElement}}>{{velcroData.placement}}</div>
         </Velcro>
       `);
 
-      assert.strictEqual(
-        velcroElement().dataset.popperPlacement,
-        this.placement
-      );
+      assert.dom('#floating').hasText('bottom-start');
     });
   });
 
-  module('strategy', function () {
+  module('@strategy', function () {
     test('has default value', async function (assert) {
       await render(hbs`
-        <Velcro as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro" {{velcro}}>Velcro</div>
+        <Velcro as |velcroReference velcroElement velcroData|>
+          <div {{velcroReference}}>velcroReference</div>
+          <div id="floating" {{velcroElement}}>{{velcroData.strategy}}</div>
         </Velcro>
       `);
-      assert.dom(velcroElement()).hasStyle({ position: 'absolute' });
+
+      assert.dom('#floating').hasText('fixed');
+      assert.dom('#floating').hasStyle({ position: 'fixed' });
     });
 
     test('has argument value', async function (assert) {
       await render(hbs`
-        <Velcro @strategy="fixed" as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro" {{velcro}}>Velcro</div>
+        <Velcro @strategy="absolute" as |velcroReference velcroElement velcroData|>
+          <div {{velcroReference}}>velcroReference</div>
+          <div id="floating" {{velcroElement}}>{{velcroData.strategy}}</div>
         </Velcro>
       `);
 
-      assert.dom(velcroElement()).hasStyle({ position: 'fixed' });
+      assert.dom('#floating').hasText('absolute');
+      assert.dom('#floating').hasStyle({ position: 'absolute' });
     });
   });
 
-  module('offset', function () {
-    test('can pass in skidding', async function (assert) {
-      this.offsetSkidding = 10;
-
-      await render(hbs`
-        {{!-- render 2 Velcro's atop the other, pass one a skidding offset and compare the left values --}}
-        <Velcro @placement="bottom-start" as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro1" {{velcro}}>Velcro</div>
-        </Velcro>
-        <Velcro @offsetSkidding={{this.offsetSkidding}} @placement="bottom-start" as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro2" {{velcro}}>Velcro</div>
-        </Velcro>
-      `);
-
-      let velcro1 = find('#velcro1');
-      let velcro2 = find('#velcro2');
-
-      // reset test container scale so values returned by
-      // getBoundingClientRect are accurate
-      document.querySelector('#ember-testing').style.transform = 'scale(1)';
-      assert.strictEqual(
-        velcro1.getBoundingClientRect().left + this.offsetSkidding,
-        velcro2.getBoundingClientRect().left
-      );
-    });
-
+  module('@offset', function () {
     test('can pass in distance', async function (assert) {
-      this.offsetDistance = 10;
+      let offsetDistance = 10;
+      this.set('offsetDistance', offsetDistance);
+
+      resetTestingContainerDimensions();
 
       await render(hbs`
-        {{!-- render 2 Velcro's side by side, pass one a distance offset and compare the values --}}
+        {{!-- render 2 Velcro's side by side, pass one a distance offset and compare the top values --}}
         {{!-- template-lint-disable no-inline-styles --}}
         <div style="display: flex">
-          <Velcro as |velcroTarget velcro|>
-            <div {{velcroTarget}}>VelcroTarget</div>
+          <Velcro @placement="bottom-start" as |velcroReference velcro|>
+            <div {{velcroReference}}>velcroReference</div>
             <div id="velcro1" {{velcro}}>Velcro</div>
           </Velcro>
-          <Velcro @offsetDistance={{this.offsetDistance}} as |velcroTarget velcro|>
-            <div {{velcroTarget}}>VelcroTarget</div>
+          <Velcro @offset={{this.offsetDistance}} @placement="bottom-start" as |velcroReference velcro|>
+            <div {{velcroReference}}>velcroReference</div>
             <div id="velcro2" {{velcro}}>Velcro</div>
           </Velcro>
         </div>
@@ -122,75 +148,26 @@ module('Integration | Component | velcro', function (hooks) {
       let velcro1 = find('#velcro1');
       let velcro2 = find('#velcro2');
 
-      // reset test container scale so values returned by
-      // getBoundingClientRect are accurate
-      document.querySelector('#ember-testing').style.transform = 'scale(1)';
       assert.strictEqual(
-        velcro1.getBoundingClientRect().top + this.offsetDistance,
+        velcro1.getBoundingClientRect().top + offsetDistance,
         velcro2.getBoundingClientRect().top
       );
     });
-  });
 
-  test('it calls onFirstUpdate', async function (assert) {
-    let onFirstUpdateCalled = false;
-    this.onFirstUpdate = () => (onFirstUpdateCalled = true);
+    test('can pass in skidding', async function (assert) {
+      let offsetSkidding = 10;
+      this.set('offsetSkidding', { crossAxis: offsetSkidding });
 
-    await render(hbs`
-      <Velcro @onFirstUpdate={{this.onFirstUpdate}} as |velcroTarget velcro|>
-        <div {{velcroTarget}}>VelcroTarget</div>
-        <div {{velcro}}>Velcro</div>
-      </Velcro>
-    `);
-
-    assert.true(onFirstUpdateCalled);
-  });
-
-  module('modifiers', function () {
-    test('can pass in custom modifier', async function (assert) {
-      let modifierCalled = false;
-
-      let modifier = {
-        name: 'testModifier',
-        enabled: true,
-        phase: 'main',
-        fn() {
-          modifierCalled = true;
-        },
-      };
-
-      this.modifiers = [modifier];
+      resetTestingContainerDimensions();
 
       await render(hbs`
-        <Velcro @modifiers={{this.modifiers}} as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro" {{velcro}}>Velcro</div>
-        </Velcro>
-      `);
-
-      assert.true(modifierCalled);
-    });
-
-    test('can override default offset modifier', async function (assert) {
-      let offsetModifier = {
-        name: 'offset',
-        options: {
-          offset: () => {
-            return [10];
-          },
-        },
-      };
-
-      this.modifiers = [offsetModifier];
-
-      await render(hbs`
-        {{!-- render 2 Velcro's atop the other, pass one a custom offset modifier and compare the left values --}}
-        <Velcro @placement="bottom-start" as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
+        {{!-- render 2 Velcro's atop the other, pass one a skidding offset and compare the left values --}}
+        <Velcro as |velcroReference velcro|>
+          <div {{velcroReference}}>velcroReference</div>
           <div id="velcro1" {{velcro}}>Velcro</div>
         </Velcro>
-        <Velcro @modifiers={{this.modifiers}} @placement="bottom-start" as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
+        <Velcro @offset={{this.offsetSkidding}} as |velcroReference velcro|>
+          <div {{velcroReference}}>velcroReference</div>
           <div id="velcro2" {{velcro}}>Velcro</div>
         </Velcro>
       `);
@@ -198,64 +175,19 @@ module('Integration | Component | velcro', function (hooks) {
       let velcro1 = find('#velcro1');
       let velcro2 = find('#velcro2');
 
-      assert.notStrictEqual(
-        velcro1.getBoundingClientRect().left,
+      assert.strictEqual(
+        velcro1.getBoundingClientRect().left + offsetSkidding,
         velcro2.getBoundingClientRect().left
       );
     });
   });
-
-  module('resizing', function () {
-    test("velcro is repositioned if velcroTarget's size changes", async function (assert) {
-      this.velcroTargetWidth = '100%';
-
-      await render(hbs`
-        <Velcro as |velcroTarget velcro|>
-          {{!-- template-lint-disable no-inline-styles --}}
-          {{!-- template-lint-disable style-concatenation --}}
-          <div style="width: {{this.velcroTargetWidth}}"> {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro" {{velcro}}>Velcro</div>
-        </Velcro>
-      `);
-
-      let velcroOffsetLeft1 = find('#velcro').getBoundingClientRect().left;
-
-      this.velcroTargetWidth = '200px';
-
-      await render(hbs`
-        <Velcro as |velcroTarget velcro|>
-          {{!-- template-lint-disable no-inline-styles --}}
-          {{!-- template-lint-disable style-concatenation --}}
-          <div style="width: {{this.velcroTargetWidth}}" {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro" {{velcro}}>Velcro</div>
-        </Velcro>
-      `);
-
-      let velcroOffsetLeft2 = find('#velcro').getBoundingClientRect().left;
-
-      assert.notStrictEqual(velcroOffsetLeft1, velcroOffsetLeft2);
-    });
-
-    test("velcro is resized if it's content changes", async function (assert) {
-      await render(hbs`
-        <Velcro as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro" {{velcro}}>Velcro</div>
-        </Velcro>
-      `);
-
-      let velcroOffsetWidth1 = find('#velcro').getBoundingClientRect().width;
-
-      await render(hbs`
-        <Velcro as |velcroTarget velcro|>
-          <div {{velcroTarget}}>VelcroTarget</div>
-          <div id="velcro" {{velcro}}>A bigger Velcro</div>
-        </Velcro>
-      `);
-
-      let velcroOffsetLeft2 = find('#velcro').getBoundingClientRect().width;
-
-      assert.notStrictEqual(velcroOffsetWidth1, velcroOffsetLeft2);
-    });
-  });
 });
+
+function resetTestingContainerDimensions() {
+  // reset test container scale so values returned by getBoundingClientRect are accurate
+  Object.assign(document.querySelector('#ember-testing').style, {
+    transform: 'scale(1)',
+    width: '100%',
+    height: '100%',
+  });
+}

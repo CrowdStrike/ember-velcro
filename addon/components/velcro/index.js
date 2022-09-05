@@ -1,74 +1,145 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { createPopper } from '@popperjs/core';
-import { inject as service } from '@ember/service';
+import {
+  autoUpdate,
+  computePosition,
+  flip,
+  hide,
+  offset,
+  shift,
+} from '@floating-ui/dom';
 import { modifier } from 'ember-modifier';
+import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
+
+/*
+Args {
+  strategy: 'absolute' | 'fixed';
+  offset: see https://floating-ui.com/docs/offset#options
+  placement: see https://floating-ui.com/docs/computeposition#placement
+  middleware: [];
+}
+*/
 
 export default class VelcroComponent extends Component {
-  @service resizeObserver;
+  _referenceElement = undefined;
 
-  _targetElement = undefined;
-  _popoverElement = undefined;
-  _popper = undefined;
+  @tracked
+  velcroData = undefined;
 
-  velcroTarget = modifier((element) => {
-    this._targetElement = element;
-    this.resizeObserver.observe(element, this._updatePopper);
+  velcroReference = modifier(
+    (element) => {
+      this._referenceElement = element;
+    },
+    { eager: false }
+  );
 
-    return () => {
-      this.resizeObserver.unobserve(element, this._updatePopper);
-    };
-  });
+  velcroElement = modifier(
+    (floatingElement) => {
+      let { _referenceElement } = this;
 
-  velcro = modifier((element) => {
-    this._popoverElement = element;
+      assert(
+        'no reference element defined',
+        _referenceElement instanceof HTMLElement
+      );
 
-    this._createPopper();
-    this.resizeObserver.observe(element, this._updatePopper);
+      assert(
+        'no floating element defined',
+        floatingElement instanceof HTMLElement
+      );
 
-    return () => {
-      this._popper.destroy();
-      this.resizeObserver.unobserve(element, this._updatePopper);
-    };
-  });
+      assert(
+        'reference and floating elements cannot be the same element',
+        floatingElement !== _referenceElement
+      );
 
-  @action
-  _createPopper() {
-    this._popper = createPopper(
-      this._targetElement,
-      this._popoverElement,
-      this._popperOptions
-    );
-  }
+      // `update` is passed to `autoUpdate` and is called when necessary so that the floating element
+      // remains "anchored" to the reference element in a variety of scenarios without detaching.
+      let update = async () => {
+        // https://floating-ui.com/docs/computeposition#strategy
+        let strategy = this.args.strategy ?? 'fixed';
 
-  @action
-  _updatePopper() {
-    this._popper.update();
-  }
+        // The layout of the floating element prior to being positioned matters:
+        // * The CSS position must be `absolute` or `fixed` prior to `computePosition()` being called.
+        //   This sets the correct initial dimensions (instead of being `block` layout).
+        // * Setting `top` and `left` to `0` initially minimizes layout interference with the dimensions
+        //   of the element, so that its final dimensions are ready before being positioned.
+        Object.assign(floatingElement.style, {
+          position: strategy,
+          top: '0',
+          left: '0',
+        });
 
-  @action
-  _popperOptions() {
-    return {
-      placement: this.args.placement ?? 'bottom',
-      modifiers: this._modifiers,
-      strategy: this.args.strategy ?? 'absolute',
-      onFirstUpdate: this.args.onFirstUpdate?.(),
-    };
-  }
+        // https://floating-ui.com/docs/offset
+        let offsetOptions = this.args.offset ?? 0;
 
-  get _modifiers() {
-    return [this._offsetModifier, ...(this.args.modifiers ?? [])];
-  }
+        // https://floating-ui.com/docs/middleware
+        // Middleware behavior is dependent on order. Each middleware returns
+        // new coordinates and data which middleware later in the array can use.
+        // In general, `offset()` should always go at the beginning of the middleware
+        // array, while `arrow()` and `hide()` at the end. The other core middleware can
+        // be shifted around depending on the desired behavior.
+        let middlewareArg = this.args.middleware ?? [];
 
-  get _offsetModifier() {
-    return {
-      name: 'offset',
-      options: {
-        offset: [
-          parseInt(this.args.offsetSkidding, 10) ?? 0,
-          parseInt(this.args.offsetDistance, 10) ?? 0,
-        ],
-      },
-    };
-  }
+        assert('@middleware must be an array', Array.isArray(middlewareArg));
+
+        let middleware = [
+          offset(offsetOptions),
+          flip(),
+          shift(),
+          ...middlewareArg,
+          hide({ strategy: 'referenceHidden' }),
+          hide({ strategy: 'escaped' }),
+          velcroData(),
+        ];
+
+        // https://floating-ui.com/docs/computePosition#placement
+        let placement = this.args.placement ?? 'bottom';
+        let options = {
+          middleware,
+          placement,
+          strategy,
+        };
+
+        // https://floating-ui.com/docs/computePosition
+        let { x, y, middlewareData } = await computePosition(
+          _referenceElement,
+          floatingElement,
+          options
+        );
+
+        x = Math.round(x);
+        y = Math.round(y);
+        let { referenceHidden } = middlewareData.hide;
+
+        Object.assign(floatingElement.style, {
+          transform: `translate3d(${x}px, ${y}px, 0)`,
+          visibility: referenceHidden ? 'hidden' : 'visible',
+        });
+
+        this.velcroData = middlewareData.metadata;
+      };
+
+      // https://floating-ui.com/docs/autoUpdate
+      // `autoUpdate` returns a "cleanup" function that should be invoked when
+      // the floating element is no longer mounted on the DOM.
+      const cleanup = autoUpdate(_referenceElement, floatingElement, update);
+
+      return () => {
+        cleanup();
+      };
+    },
+    { eager: false }
+  );
+}
+
+function velcroData() {
+  return {
+    name: 'metadata',
+    fn: (data) => {
+      // https://floating-ui.com/docs/middleware#always-return-an-object
+      return {
+        data,
+      };
+    },
+  };
 }
