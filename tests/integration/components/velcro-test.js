@@ -39,7 +39,7 @@ module('Integration | Component | velcro', function (hooks) {
   });
 
   module('@middleware', function () {
-    test('it yields position and middleware data', async function (assert) {
+    test('it yields the MiddlewareArguments', async function (assert) {
       await render(hbs`
           <Velcro as |velcroReference velcroElement velcroData|>
             <div id="reference" {{velcroReference}}>
@@ -57,7 +57,7 @@ module('Integration | Component | velcro', function (hooks) {
         );
     });
 
-    test('it has expected default middleware defined', async function (assert) {
+    test('it has expected included middleware defined', async function (assert) {
       await render(hbs`
         <Velcro as |velcroReference velcroElement velcroData|>
           <div id="reference" {{velcroReference}}>
@@ -75,6 +75,7 @@ module('Integration | Component | velcro', function (hooks) {
 
   module('@placement', function () {
     test('has default value', async function (assert) {
+      resetTestingContainerDimensions();
       await render(hbs`
         <Velcro as |velcroReference velcroElement velcroData|>
           <div {{velcroReference}}>velcroReference</div>
@@ -86,6 +87,7 @@ module('Integration | Component | velcro', function (hooks) {
     });
 
     test('has argument value', async function (assert) {
+      resetTestingContainerDimensions();
       await render(hbs`
         <Velcro @placement="bottom-start" as |velcroReference velcroElement velcroData|>
           <div {{velcroReference}}>velcroReference</div>

@@ -1,7 +1,9 @@
 Ember Velcro
 ==============================================================================
 
-Ember Velcro sticks, or anchors, one element to another with [Floating UI](https://floating-ui.com/). Several of Floating UI's functions and [middleware](https://floating-ui.com/docs/middleware) are used to create an experience out of the box that is useful and expected. See Floating UI's [documentation](https://floating-ui.com/docs/getting-started) for more information on any of the following included functionality.
+Ember Velcro sticks one element to another with [Floating UI](https://floating-ui.com/). Several of Floating UI's functions and [middleware](https://floating-ui.com/docs/middleware) are used to create an experience out of the box that is useful and expected.
+
+See Floating UI's [documentation](https://floating-ui.com/docs/getting-started) for more information on any of the following included functionality.
 
 Functions:
 
@@ -21,23 +23,34 @@ Middleware:
 
 [hide](https://floating-ui.com/docs/hide) - hides the floating element when the reference element is no longer visible or when the floating element has escaped the reference element's clipping context.
 
-Any of the included middleware can be overridden by simply passing them in again with your desired values. It's recommended to keep offset at the beginning of the middleware array so any calculations by further middleware are accurate, with that in mind the following API is provided.
 
 API
 ------------------------------------------------------------------------------
 
-* `@middleware` - an array of any [middleware](https://floating-ui.com/docs/middleware) you want to pass in.
-* `@offset` - offsets the floating element from it's `placement` along the specified axes - [offset docs](https://floating-ui.com/docs/offset)
-* `@placement` - where to place the floating element relative to its reference element - [available values](https://floating-ui.com/docs/computeposition#placement)
+**Middleware**
+
+Options are passed to the included  `middleware` via an argument of the same name:
+
+* `@offset` - see [offset docs](https://floating-ui.com/docs/offset) for expected values
+* `@flip` - see [flip docs](https://floating-ui.com/docs/flip) for expected values
+* `@shift` - see [shift docs](https://floating-ui.com/docs/shift) for expected values
+
+**computePostion**
+
+`computePosition`: takes 3 arguments which can be overridden, or in the case of `middleware`, added to.
+
+* `@placement` - see list of [expected values](https://floating-ui.com/docs/computeposition#placement)
 * `@strategy` - CSS positon property, either 'fixed' or 'absolute'. Pros and cons of each strategy is [here](https://floating-ui.com/docs/computePosition#strategy)
+* `@middleware` - array of any custom [middleware](https://floating-ui.com/docs/middleware) you want to add. The array is spread into the defaults after the `shift` and before the `hide` middleware.
+
 
 Default values
 ------------------------------------------------------------------------------
 
-* `@middleware`: [];
-* `@offset`: 0
 * `@placement`: 'bottom'
 * `@strategy`: 'fixed'
+
+`offset`, `flip`, and `shift` middleware use their defaults. `hide` middleware uses both `referenceHidden` and `escaped` [options](https://floating-ui.com/docs/hide#options).
 
 Usage
 ------------------------------------------------------------------------------
@@ -70,7 +83,7 @@ Compatibility
 
 * Ember.js v3.20 or above
 * Ember CLI v3.20 or above
-* Node.js v12 or above
+* Node.js v14 or above
 
 
 Installation

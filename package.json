@@ -1,6 +1,6 @@
 {
   "name": "@camskene/ember-velcro",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Ember Velcro sticks one element to another with PopperJS.",
   "keywords": [
     "ember-addon"

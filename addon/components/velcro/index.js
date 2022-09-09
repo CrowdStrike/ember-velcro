@@ -11,15 +11,6 @@ import { modifier } from 'ember-modifier';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 
-/*
-Args {
-  strategy: 'absolute' | 'fixed';
-  offset: see https://floating-ui.com/docs/offset#options
-  placement: see https://floating-ui.com/docs/computeposition#placement
-  middleware: [];
-}
-*/
-
 export default class VelcroComponent extends Component {
   _referenceElement = undefined;
 
@@ -69,8 +60,16 @@ export default class VelcroComponent extends Component {
           left: '0',
         });
 
-        // https://floating-ui.com/docs/offset
+        // https://floating-ui.com/docs/offset#options
         let offsetOptions = this.args.offset ?? 0;
+
+        // https://floating-ui.com/docs/flip#options
+        let flipMiddleware = this.args.flip ? flip(this.args.flip) : flip();
+
+        // https://floating-ui.com/docs/shift#options
+        let shiftMiddleware = this.args.shift
+          ? shift(this.args.shift)
+          : shift();
 
         // https://floating-ui.com/docs/middleware
         // Middleware behavior is dependent on order. Each middleware returns
@@ -78,15 +77,15 @@ export default class VelcroComponent extends Component {
         // In general, `offset()` should always go at the beginning of the middleware
         // array, while `arrow()` and `hide()` at the end. The other core middleware can
         // be shifted around depending on the desired behavior.
-        let middlewareArg = this.args.middleware ?? [];
+        let customMiddleware = this.args.middleware ?? [];
 
-        assert('@middleware must be an array', Array.isArray(middlewareArg));
+        assert('@middleware must be an array', Array.isArray(customMiddleware));
 
         let middleware = [
           offset(offsetOptions),
-          flip(),
-          shift(),
-          ...middlewareArg,
+          flipMiddleware,
+          shiftMiddleware,
+          ...customMiddleware,
           hide({ strategy: 'referenceHidden' }),
           hide({ strategy: 'escaped' }),
           velcroData(),
@@ -94,6 +93,7 @@ export default class VelcroComponent extends Component {
 
         // https://floating-ui.com/docs/computePosition#placement
         let placement = this.args.placement ?? 'bottom';
+
         let options = {
           middleware,
           placement,
@@ -122,7 +122,7 @@ export default class VelcroComponent extends Component {
       // https://floating-ui.com/docs/autoUpdate
       // `autoUpdate` returns a "cleanup" function that should be invoked when
       // the floating element is no longer mounted on the DOM.
-      const cleanup = autoUpdate(_referenceElement, floatingElement, update);
+      let cleanup = autoUpdate(_referenceElement, floatingElement, update);
 
       return () => {
         cleanup();
