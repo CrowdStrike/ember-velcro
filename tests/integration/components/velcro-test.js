@@ -140,7 +140,7 @@ module('Integration | Component | velcro', function (hooks) {
             <div {{velcroReference}}>velcroReference</div>
             <div id="velcro1" {{velcro}}>Velcro</div>
           </Velcro>
-          <Velcro @offset={{this.offsetDistance}} @placement="bottom-start" as |velcroReference velcro|>
+          <Velcro @offsetOptions={{this.offsetDistance}} @placement="bottom-start" as |velcroReference velcro|>
             <div {{velcroReference}}>velcroReference</div>
             <div id="velcro2" {{velcro}}>Velcro</div>
           </Velcro>
@@ -168,7 +168,7 @@ module('Integration | Component | velcro', function (hooks) {
           <div {{velcroReference}}>velcroReference</div>
           <div id="velcro1" {{velcro}}>Velcro</div>
         </Velcro>
-        <Velcro @offset={{this.offsetSkidding}} as |velcroReference velcro|>
+        <Velcro @offsetOptions={{this.offsetSkidding}} as |velcroReference velcro|>
           <div {{velcroReference}}>velcroReference</div>
           <div id="velcro2" {{velcro}}>Velcro</div>
         </Velcro>
