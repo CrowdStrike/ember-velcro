@@ -1,4 +1,8 @@
 import Component from '@glimmer/component';
+import { modifier } from 'ember-modifier';
+import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
+
 import {
   autoUpdate,
   computePosition,
@@ -7,9 +11,8 @@ import {
   offset,
   shift,
 } from '@floating-ui/dom';
-import { modifier } from 'ember-modifier';
-import { assert } from '@ember/debug';
-import { tracked } from '@glimmer/tracking';
+
+import { velcroData } from '@camskene/ember-velcro/middleware/velcro-data';
 
 export default class VelcroComponent extends Component {
   _referenceElement = undefined;
@@ -130,16 +133,4 @@ export default class VelcroComponent extends Component {
     },
     { eager: false }
   );
-}
-
-function velcroData() {
-  return {
-    name: 'metadata',
-    fn: (data) => {
-      // https://floating-ui.com/docs/middleware#always-return-an-object
-      return {
-        data,
-      };
-    },
-  };
 }
