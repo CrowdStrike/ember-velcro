@@ -6,4 +6,9 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  ...(process.env.EMBER_ENV == 'development') && {
+    safelist: [
+      { pattern: /.*/ },
+    ],
+  },
 };
