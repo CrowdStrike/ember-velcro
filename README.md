@@ -27,21 +27,12 @@ Middleware:
 API
 ------------------------------------------------------------------------------
 
-**Middleware**
-
-Options are passed to the included  `middleware` via an argument of the same name:
-
-* `@offset` - see [offset docs](https://floating-ui.com/docs/offset) for expected values
-* `@flip` - see [flip docs](https://floating-ui.com/docs/flip) for expected values
-* `@shift` - see [shift docs](https://floating-ui.com/docs/shift) for expected values
-
-**computePostion**
-
-`computePosition`: takes 3 arguments which can be overridden, or in the case of `middleware`, added to.
-
-* `@placement` - see list of [expected values](https://floating-ui.com/docs/computeposition#placement)
-* `@strategy` - CSS positon property, either 'fixed' or 'absolute'. Pros and cons of each strategy is [here](https://floating-ui.com/docs/computePosition#strategy)
-* `@middleware` - array of any custom [middleware](https://floating-ui.com/docs/middleware) you want to add. The array is spread into the defaults after the `shift` and before the `hide` middleware.
+* `@flipOptions` - see [flip docs](https://floating-ui.com/docs/flip) for option values
+* `@middleware` - array of one or more objects to add to the [middleware](https://floating-ui.com/docs/middleware) array
+* `@offsetOptions` - see [offset docs](https://floating-ui.com/docs/offset) for option values
+* `@placement` - list of [expected values](https://floating-ui.com/docs/computeposition#placement)
+* `@shiftOptions` - see [shift docs](https://floating-ui.com/docs/shift) for option values
+* `@strategy` - CSS position property, either 'fixed' or 'absolute'. Pros and cons of each strategy is [here](https://floating-ui.com/docs/computePosition#strategy)
 
 
 Default values
@@ -49,13 +40,21 @@ Default values
 
 * `@placement`: 'bottom'
 * `@strategy`: 'fixed'
+* `offset`, `flip`, and `shift` middleware all use their defaults.
+* `hide` middleware uses both `referenceHidden` and `escaped` [options](https://floating-ui.com/docs/hide#options).
 
-`offset`, `flip`, and `shift` middleware use their defaults. `hide` middleware uses both `referenceHidden` and `escaped` [options](https://floating-ui.com/docs/hide#options).
-
-Usage
+Usage as Modifier
 ------------------------------------------------------------------------------
 
-Ember Velcro provides a `Velcro` component that yields 3 values; 2 modifiers and 'velcro data':
+```hbs
+<div id="velcro-reference">Velcro reference</div>
+<div {{velcro "#velcro-reference"}}>I'm stuck to Velcro reference!</div>
+```
+
+Usage as Component
+------------------------------------------------------------------------------
+
+The `Velcro` component yields 3 values; 2 modifiers and 'velcro data':
 
 ```hbs
 <Velcro as |velcroReference velcroElement velcroData|>
@@ -96,7 +95,7 @@ ember install github:camskene/ember-velcro
 Contributing
 ------------------------------------------------------------------------------
 
-Ember Velcro is currently written primarily for my own fun and education. I plan to publish to NPM once a half-decent demo site is up.
+Ember Velcro is currently written primarily for my own fun and education.
 
 License
 ------------------------------------------------------------------------------

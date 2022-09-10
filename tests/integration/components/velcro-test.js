@@ -3,8 +3,14 @@ import { setupRenderingTest } from 'ember-qunit';
 import { find, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+import { resetTestingContainerDimensions } from '../velcro-test-helpers';
+
 module('Integration | Component | velcro', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.beforeEach(function () {
+    resetTestingContainerDimensions();
+  });
 
   test('it renders', async function (assert) {
     await render(hbs`
@@ -75,7 +81,6 @@ module('Integration | Component | velcro', function (hooks) {
 
   module('@placement', function () {
     test('has default value', async function (assert) {
-      resetTestingContainerDimensions();
       await render(hbs`
         <Velcro as |velcroReference velcroElement velcroData|>
           <div {{velcroReference}}>velcroReference</div>
@@ -87,7 +92,6 @@ module('Integration | Component | velcro', function (hooks) {
     });
 
     test('has argument value', async function (assert) {
-      resetTestingContainerDimensions();
       await render(hbs`
         <Velcro @placement="bottom-start" as |velcroReference velcroElement velcroData|>
           <div {{velcroReference}}>velcroReference</div>
@@ -125,12 +129,10 @@ module('Integration | Component | velcro', function (hooks) {
     });
   });
 
-  module('@offset', function () {
+  module('@offsetOptions', function () {
     test('can pass in distance', async function (assert) {
       let offsetDistance = 10;
       this.set('offsetDistance', offsetDistance);
-
-      resetTestingContainerDimensions();
 
       await render(hbs`
         {{!-- render 2 Velcro's side by side, pass one a distance offset and compare the top values --}}
@@ -140,7 +142,7 @@ module('Integration | Component | velcro', function (hooks) {
             <div {{velcroReference}}>velcroReference</div>
             <div id="velcro1" {{velcro}}>Velcro</div>
           </Velcro>
-          <Velcro @offset={{this.offsetDistance}} @placement="bottom-start" as |velcroReference velcro|>
+          <Velcro @offsetOptions={{this.offsetDistance}} @placement="bottom-start" as |velcroReference velcro|>
             <div {{velcroReference}}>velcroReference</div>
             <div id="velcro2" {{velcro}}>Velcro</div>
           </Velcro>
@@ -160,15 +162,13 @@ module('Integration | Component | velcro', function (hooks) {
       let offsetSkidding = 10;
       this.set('offsetSkidding', { crossAxis: offsetSkidding });
 
-      resetTestingContainerDimensions();
-
       await render(hbs`
         {{!-- render 2 Velcro's atop the other, pass one a skidding offset and compare the left values --}}
         <Velcro as |velcroReference velcro|>
           <div {{velcroReference}}>velcroReference</div>
           <div id="velcro1" {{velcro}}>Velcro</div>
         </Velcro>
-        <Velcro @offset={{this.offsetSkidding}} as |velcroReference velcro|>
+        <Velcro @offsetOptions={{this.offsetSkidding}} as |velcroReference velcro|>
           <div {{velcroReference}}>velcroReference</div>
           <div id="velcro2" {{velcro}}>Velcro</div>
         </Velcro>
@@ -184,12 +184,3 @@ module('Integration | Component | velcro', function (hooks) {
     });
   });
 });
-
-function resetTestingContainerDimensions() {
-  // reset test container scale so values returned by getBoundingClientRect are accurate
-  Object.assign(document.querySelector('#ember-testing').style, {
-    transform: 'scale(1)',
-    width: '100%',
-    height: '100%',
-  });
-}
