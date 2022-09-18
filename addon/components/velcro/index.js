@@ -1,11 +1,13 @@
 import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { tracked } from '@glimmer/tracking';
+import { guidFor } from '@ember/object/internals';
 
 import VelcroModifier from '@camskene/ember-velcro/modifiers/velcro';
 
 export default class VelcroComponent extends Component {
   _hook = undefined;
+  guid = guidFor(this);
 
   @tracked
   // set by VelcroModifier

@@ -1,2 +1,16 @@
 {{yield (hash hook=this.velcroHook loop=this.velcroLoop data=this.velcroData)}}
 
+
+{{#let this.guid as |id|}}
+  {{#if (has-block "hook")}}
+    <div id={{id}}>
+      {{yield to="hook"}}
+    </div>
+  {{/if}}
+  {{#if (has-block "loop")}}
+    {{!-- inline `if` ensures assert is thrown if the hook block is not added to template --}}
+    <div {{velcro (if (has-block "hook") (concat "#" id))}}>
+      {{yield to="loop"}}
+    </div>
+  {{/if}}
+{{/let}}
