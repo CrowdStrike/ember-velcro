@@ -1,7 +1,9 @@
 Ember Velcro
 ==============================================================================
 
-Ember Velcro sticks one element to another with [Floating UI](https://floating-ui.com/). Several of Floating UI's functions and [middleware](https://floating-ui.com/docs/middleware) are used to create an experience out of the box that is useful and expected.
+Ember Velcro sticks one element to another with [Floating UI](https://floating-ui.com/), it can be used as a modifier or a component.
+
+Several of Floating UI's functions and [middleware](https://floating-ui.com/docs/middleware) are used to create an experience out of the box that is useful and expected.
 
 See Floating UI's [documentation](https://floating-ui.com/docs/getting-started) for more information on any of the following included functionality.
 
@@ -47,23 +49,24 @@ Usage as Modifier
 ------------------------------------------------------------------------------
 
 ```hbs
-<div id="velcro-reference">Velcro reference</div>
-<div {{velcro "#velcro-reference"}}>I'm stuck to Velcro reference!</div>
+<div id="hook">The `reference` element (the hook)</div>
+<div {{velcro "#hook"}}>The `floating` element (the loop)</div>
 ```
 
 Usage as Component
 ------------------------------------------------------------------------------
 
-The `Velcro` component yields 3 values; 2 modifiers and 'velcro data':
+The `Velcro` component yields a single hash - 2 modifiers and 'velcro data':
 
 ```hbs
-<Velcro as |velcroReference velcroElement velcroData|>
-  <div {{velcroReference}}>Velcro reference</div>
-  <div {{velcroElement}}>I'm stuck to Velcro reference!</div>
+<Velcro as |velcro|>
+  <div {{velcro.hook}}>Velcro hook</div>
+  <div {{velcro.loop}}>Velcro loop stuck to Velcro hook!</div>
+  {{log "velcro data" velcro.data}}
 </Velcro>
 ```
 
-`velcroData` is the `MiddlewareArguments` object, it contains the following values:
+`velcro.data` is the `MiddlewareArguments` object, it contains the following values:
 
 * x
 * y

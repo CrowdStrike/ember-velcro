@@ -14,32 +14,32 @@ module('Integration | Component | velcro', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <Velcro as |velcroReference velcroElement velcroData|>
-        <div id="reference" {{velcroReference}} style="width: 200px; height: 40px">
-          {{velcroData.rects.reference.width}}
-          {{velcroData.rects.reference.height}}
+      <Velcro as |velcro|>
+        <div id="hook" {{velcro.hook}} style="width: 200px; height: 40px">
+          {{velcro.data.rects.reference.width}}
+          {{velcro.data.rects.reference.height}}
         </div>
-        <div id="floating" {{velcroElement}} style="width: 200px; height: 400px">
-          {{velcroData.rects.floating.width}}
-          {{velcroData.rects.floating.height}}
+        <div id="loop" {{velcro.loop}} style="width: 200px; height: 400px">
+          {{velcro.data.rects.floating.width}}
+          {{velcro.data.rects.floating.height}}
         </div>
       </Velcro>
     `);
 
     assert
-      .dom('#reference')
+      .dom('#hook')
       .hasText('200 40', 'reference element has expected dimensions');
     assert
-      .dom('#floating')
+      .dom('#loop')
       .hasText('200 400', 'floating element has expected dimensions');
-    assert.dom('#floating').hasAttribute('style');
-    assert.dom('#floating').hasStyle({
+    assert.dom('#loop').hasAttribute('style');
+    assert.dom('#loop').hasStyle({
       position: 'fixed',
       top: '0px',
       left: '0px',
     });
     assert.ok(
-      find('#floating').style.transform.includes('translate3d'),
+      find('#loop').style.transform.includes('translate3d'),
       'floating element is positioned with translate3d'
     );
   });
@@ -47,16 +47,16 @@ module('Integration | Component | velcro', function (hooks) {
   module('@middleware', function () {
     test('it yields the MiddlewareArguments', async function (assert) {
       await render(hbs`
-          <Velcro as |velcroReference velcroElement velcroData|>
-            <div id="reference" {{velcroReference}}>
-              {{object-keys velcroData}}
+          <Velcro as |velcro|>
+            <div id="hook" {{velcro.hook}}>
+              {{object-keys velcro.data}}
             </div>
-            <div id="floating" {{velcroElement}}>VelcroElement</div>
+            <div id="loop" {{velcro.loop}}>VelcroElement</div>
           </Velcro>
         `);
 
       assert
-        .dom('#reference')
+        .dom('#hook')
         .hasText(
           'x,y,initialPlacement,placement,strategy,middlewareData,rects,platform,elements',
           'has expected metadata'
@@ -65,16 +65,16 @@ module('Integration | Component | velcro', function (hooks) {
 
     test('it has expected included middleware defined', async function (assert) {
       await render(hbs`
-        <Velcro as |velcroReference velcroElement velcroData|>
-          <div id="reference" {{velcroReference}}>
-            {{object-keys velcroData.middlewareData}}
+        <Velcro as |velcro|>
+          <div id="hook" {{velcro.hook}}>
+            {{object-keys velcro.data.middlewareData}}
           </div>
-          <div id="floating" {{velcroElement}}>VelcroElement</div>
+          <div id="loop" {{velcro.loop}}>VelcroElement</div>
         </Velcro>
       `);
 
       assert
-        .dom('#reference')
+        .dom('#hook')
         .hasText('offset,flip,shift,hide', 'has expected middleware');
     });
   });
@@ -82,50 +82,50 @@ module('Integration | Component | velcro', function (hooks) {
   module('@placement', function () {
     test('has default value', async function (assert) {
       await render(hbs`
-        <Velcro as |velcroReference velcroElement velcroData|>
-          <div {{velcroReference}}>velcroReference</div>
-          <div id="floating" {{velcroElement}}>{{velcroData.placement}}</div>
+        <Velcro as |velcro|>
+          <div {{velcro.hook}}>velcroReference</div>
+          <div id="loop" {{velcro.loop}}>{{velcro.data.placement}}</div>
         </Velcro>
       `);
 
-      assert.dom('#floating').hasText('bottom');
+      assert.dom('#loop').hasText('bottom');
     });
 
     test('has argument value', async function (assert) {
       await render(hbs`
-        <Velcro @placement="bottom-start" as |velcroReference velcroElement velcroData|>
-          <div {{velcroReference}}>velcroReference</div>
-          <div id="floating" {{velcroElement}}>{{velcroData.placement}}</div>
+        <Velcro @placement="bottom-start" as |velcro|>
+          <div {{velcro.hook}}>velcroReference</div>
+          <div id="loop" {{velcro.loop}}>{{velcro.data.placement}}</div>
         </Velcro>
       `);
 
-      assert.dom('#floating').hasText('bottom-start');
+      assert.dom('#loop').hasText('bottom-start');
     });
   });
 
   module('@strategy', function () {
     test('has default value', async function (assert) {
       await render(hbs`
-        <Velcro as |velcroReference velcroElement velcroData|>
-          <div {{velcroReference}}>velcroReference</div>
-          <div id="floating" {{velcroElement}}>{{velcroData.strategy}}</div>
+        <Velcro as |velcro|>
+          <div {{velcro.hook}}>velcroReference</div>
+          <div id="loop" {{velcro.loop}}>{{velcro.data.strategy}}</div>
         </Velcro>
       `);
 
-      assert.dom('#floating').hasText('fixed');
-      assert.dom('#floating').hasStyle({ position: 'fixed' });
+      assert.dom('#loop').hasText('fixed');
+      assert.dom('#loop').hasStyle({ position: 'fixed' });
     });
 
     test('has argument value', async function (assert) {
       await render(hbs`
-        <Velcro @strategy="absolute" as |velcroReference velcroElement velcroData|>
-          <div {{velcroReference}}>velcroReference</div>
-          <div id="floating" {{velcroElement}}>{{velcroData.strategy}}</div>
+        <Velcro @strategy="absolute" as |velcro|>
+          <div {{velcro.hook}}>velcroReference</div>
+          <div id="loop" {{velcro.loop}}>{{velcro.data.strategy}}</div>
         </Velcro>
       `);
 
-      assert.dom('#floating').hasText('absolute');
-      assert.dom('#floating').hasStyle({ position: 'absolute' });
+      assert.dom('#loop').hasText('absolute');
+      assert.dom('#loop').hasStyle({ position: 'absolute' });
     });
   });
 
@@ -138,13 +138,13 @@ module('Integration | Component | velcro', function (hooks) {
         {{!-- render 2 Velcro's side by side, pass one a distance offset and compare the top values --}}
         {{!-- template-lint-disable no-inline-styles --}}
         <div style="display: flex">
-          <Velcro @placement="bottom-start" as |velcroReference velcro|>
-            <div {{velcroReference}}>velcroReference</div>
-            <div id="velcro1" {{velcro}}>Velcro</div>
+          <Velcro @placement="bottom-start" as |velcro|>
+            <div {{velcro.hook}}>velcroReference</div>
+            <div id="velcro1" {{velcro.loop}}>Velcro</div>
           </Velcro>
-          <Velcro @offsetOptions={{this.offsetDistance}} @placement="bottom-start" as |velcroReference velcro|>
-            <div {{velcroReference}}>velcroReference</div>
-            <div id="velcro2" {{velcro}}>Velcro</div>
+          <Velcro @offsetOptions={{this.offsetDistance}} @placement="bottom-start" as |velcro|>
+            <div {{velcro.hook}}>velcroReference</div>
+            <div id="velcro2" {{velcro.loop}}>Velcro</div>
           </Velcro>
         </div>
       `);
@@ -164,13 +164,13 @@ module('Integration | Component | velcro', function (hooks) {
 
       await render(hbs`
         {{!-- render 2 Velcro's atop the other, pass one a skidding offset and compare the left values --}}
-        <Velcro as |velcroReference velcro|>
-          <div {{velcroReference}}>velcroReference</div>
-          <div id="velcro1" {{velcro}}>Velcro</div>
+        <Velcro as |velcro|>
+          <div {{velcro.hook}}>velcroReference</div>
+          <div id="velcro1" {{velcro.loop}}>Velcro</div>
         </Velcro>
-        <Velcro @offsetOptions={{this.offsetSkidding}} as |velcroReference velcro|>
-          <div {{velcroReference}}>velcroReference</div>
-          <div id="velcro2" {{velcro}}>Velcro</div>
+        <Velcro @offsetOptions={{this.offsetSkidding}} as |velcro|>
+          <div {{velcro.hook}}>velcroReference</div>
+          <div id="velcro2" {{velcro.loop}}>Velcro</div>
         </Velcro>
       `);
 
