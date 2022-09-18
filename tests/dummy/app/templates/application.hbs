@@ -1,9 +1,19 @@
-{{page-title "Ember Velcro"}}
+{{page-title "Ember Velcro - Ember addon for Floating UI"}}
 
-<p id="reference">Reference</p>
-<p {{velcro "#reference"}}>Floating</p>
+<div class="w-screen min-h-screen px-4 mx-auto max-w-screen-2xl">
+  <header class="py-4 border-b">
+    <h1 class="text-5xl font-bold text-center md:font-black md:text-7xl lg:text-8xl">Ember Velcro</h1>
+    <p class="mt-1 text-lg font-bold text-center md:text-2xl">Ember Addon for <a href="https://floating-ui.com/" target="_blank" rel="noopener noreferrer">Floating UI</a></p>
+  </header>
 
-<hr>
+  <Velcro as |velcro|>
+    <p {{velcro.hook}}>
+      Hook (modifier)
+    </p>
+    <div {{velcro.loop}}>
+      Loop (modifier)
+    </div>
+  </Velcro>
 
 <Velcro as |velcroTarget velcro|>
   <p {{velcroTarget}}>Velcro target</p>
