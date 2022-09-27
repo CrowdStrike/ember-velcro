@@ -1,19 +1,19 @@
 'use strict';
 
 /**
-  * The goal of commitlint in this repo is not to enforce
-  * eerily similar commit messages across comitters, but
-  * to give juuust enough enformation for automated releasing.
-  *
-  * Beyond major/minor/patch indicators, most of the commit
-  * message's conventions are irrelevant, and should instead be
-  * focused on content / release notes.
-  *
-  * And for contributors to the repository, following convential commits
-  * is not needed. The maintainer of ember-headless-table merging a PR
-  * can specify chore/feat/fix/breaking in the merge commit in the GitHub
-  * UI.
-  */
+ * The goal of commitlint in this repo is not to enforce
+ * eerily similar commit messages across comitters, but
+ * to give juuust enough enformation for automated releasing.
+ *
+ * Beyond major/minor/patch indicators, most of the commit
+ * message's conventions are irrelevant, and should instead be
+ * focused on content / release notes.
+ *
+ * And for contributors to the repository, following convential commits
+ * is not needed. The maintainer of ember-headless-table merging a PR
+ * can specify chore/feat/fix/breaking in the merge commit in the GitHub
+ * UI.
+ */
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   // https://commitlint.js.org/#/reference-rules

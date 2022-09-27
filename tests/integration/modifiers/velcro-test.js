@@ -1,12 +1,10 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
+import { set } from '@ember/object';
 import { find, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { set } from '@ember/object';
-import {
-  addDataAttributes,
-  resetTestingContainerDimensions,
-} from '../velcro-test-helpers';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+
+import { addDataAttributes, resetTestingContainerDimensions } from '../velcro-test-helpers';
 
 module('Integration | Modifier | velcro', function (hooks) {
   setupRenderingTest(hooks);

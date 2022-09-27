@@ -1,16 +1,8 @@
-import Modifier from 'ember-modifier';
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
-import {
-  autoUpdate,
-  computePosition,
-  flip,
-  hide,
-  offset,
-  shift,
-} from '@floating-ui/dom';
-
+import { autoUpdate, computePosition, flip, hide, offset, shift } from '@floating-ui/dom';
+import Modifier from 'ember-modifier';
 import { velcroData } from 'ember-velcro/middleware/velcro-data';
 
 export default class VelcroModifier extends Modifier {
@@ -30,25 +22,16 @@ export default class VelcroModifier extends Modifier {
       referenceElement = document.querySelector(referenceElement);
     }
 
-    assert(
-      'no reference element defined',
-      referenceElement instanceof HTMLElement
-    );
+    assert('no reference element defined', referenceElement instanceof HTMLElement);
 
-    assert(
-      'no floating element defined',
-      floatingElement instanceof HTMLElement
-    );
+    assert('no floating element defined', floatingElement instanceof HTMLElement);
 
     assert(
       'reference and floating elements cannot be the same element',
       floatingElement !== referenceElement
     );
 
-    assert(
-      '@middleware must be an array of one or more objects',
-      Array.isArray(middleware)
-    );
+    assert('@middleware must be an array of one or more objects', Array.isArray(middleware));
 
     Object.assign(floatingElement.style, {
       position: strategy,
@@ -57,23 +40,19 @@ export default class VelcroModifier extends Modifier {
     });
 
     let update = async () => {
-      let { x, y, middlewareData } = await computePosition(
-        referenceElement,
-        floatingElement,
-        {
-          middleware: [
-            offset(offsetOptions),
-            flip(flipOptions),
-            shift(shiftOptions),
-            ...middleware,
-            hide({ strategy: 'referenceHidden' }),
-            hide({ strategy: 'escaped' }),
-            velcroData(),
-          ],
-          placement,
-          strategy,
-        }
-      );
+      let { x, y, middlewareData } = await computePosition(referenceElement, floatingElement, {
+        middleware: [
+          offset(offsetOptions),
+          flip(flipOptions),
+          shift(shiftOptions),
+          ...middleware,
+          hide({ strategy: 'referenceHidden' }),
+          hide({ strategy: 'escaped' }),
+          velcroData(),
+        ],
+        placement,
+        strategy,
+      });
 
       Object.assign(floatingElement.style, {
         strategy,

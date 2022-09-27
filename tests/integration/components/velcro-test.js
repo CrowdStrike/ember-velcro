@@ -1,7 +1,7 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
 import { find, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
 
 import { resetTestingContainerDimensions } from '../velcro-test-helpers';
 
@@ -26,12 +26,8 @@ module('Integration | Component | velcro', function (hooks) {
       </Velcro>
     `);
 
-    assert
-      .dom('#hook')
-      .hasText('200 40', 'reference element has expected dimensions');
-    assert
-      .dom('#loop')
-      .hasText('200 400', 'floating element has expected dimensions');
+    assert.dom('#hook').hasText('200 40', 'reference element has expected dimensions');
+    assert.dom('#loop').hasText('200 400', 'floating element has expected dimensions');
     assert.dom('#loop').hasAttribute('style');
     assert.dom('#loop').hasStyle({
       position: 'fixed',
@@ -73,9 +69,7 @@ module('Integration | Component | velcro', function (hooks) {
         </Velcro>
       `);
 
-      assert
-        .dom('#hook')
-        .hasText('offset,flip,shift,hide', 'has expected middleware');
+      assert.dom('#hook').hasText('offset,flip,shift,hide', 'has expected middleware');
     });
   });
 
