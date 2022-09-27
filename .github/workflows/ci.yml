@@ -95,10 +95,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     needs:
-      - tests
-      - typescript-compatibility
+      - floating
+      - test
       - try-scenarios
-      - floating-deps-tests
     steps:
       - uses: actions/checkout@v3
         with:
