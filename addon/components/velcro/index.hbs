@@ -1,2 +1,16 @@
-{{yield (hash hook=this.velcroHook loop=this.velcroLoop data=this.velcroData)}}
+{{yield (hash
+  hook=this.velcroHook
+  loop=(if this.hook (modifier this.velcroLoop
+    this.hook
+    flipOptions=@flipOptions
+    hideOptions=@hideOptions
+    middleware=@middleware
+    offsetOptions=@offsetOptions
+    placement=@placement
+    shiftOptions=@shiftOptions
+    strategy=@strategy
+    setVelcroData=this.setVelcroData
+  ))
+  data=this.velcroData
+)}}
 

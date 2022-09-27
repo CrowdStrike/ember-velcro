@@ -16,6 +16,7 @@ export default class VelcroModifier extends Modifier {
       flipOptions,
       shiftOptions,
       middleware = [],
+      setVelcroData,
     }
   ) {
     if (typeof referenceElement === 'string') {
@@ -60,7 +61,7 @@ export default class VelcroModifier extends Modifier {
         visibility: middlewareData.hide.referenceHidden ? 'hidden' : 'visible',
       });
 
-      this.velcroData = middlewareData.metadata;
+      setVelcroData?.(middlewareData.metadata);
     };
 
     let cleanup = autoUpdate(referenceElement, floatingElement, update);
