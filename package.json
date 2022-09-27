@@ -1,7 +1,7 @@
 {
-  "name": "@camskene/ember-velcro",
-  "version": "3.0.0",
-  "description": "Ember Velcro sticks one element to another with PopperJS.",
+  "name": "ember-velcro",
+  "version": "1.0.0",
+  "description": "Ember Velcro sticks one element to another with Floating UI.",
   "keywords": [
     "ember-addon"
   ],
@@ -40,6 +40,9 @@
     "@embroider/test-setup": "^1.8.3",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "@nullvoxpopuli/eslint-configs": "^2.2.58",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/git": "^10.0.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "~4.7.0",
@@ -68,6 +71,7 @@
     "prettier": "^2.7.1",
     "qunit": "^2.19.1",
     "qunit-dom": "^2.0.0",
+    "semantic-release": "^19.0.0",
     "tailwindcss": "^3.1.8",
     "webpack": "^5.74.0"
   },

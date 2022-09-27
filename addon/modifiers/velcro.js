@@ -11,7 +11,7 @@ import {
   shift,
 } from '@floating-ui/dom';
 
-import { velcroData } from '@camskene/ember-velcro/middleware/velcro-data';
+import { velcroData } from 'ember-velcro/middleware/velcro-data';
 
 export default class VelcroModifier extends Modifier {
   modify(

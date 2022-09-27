@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { tracked } from '@glimmer/tracking';
 
-import VelcroModifier from '@camskene/ember-velcro/modifiers/velcro';
+import VelcroModifier from 'ember-velcro/modifiers/velcro';
 
 export default class VelcroComponent extends Component {
   _hook = undefined;
