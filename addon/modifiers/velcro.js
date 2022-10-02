@@ -23,9 +23,15 @@ export default class VelcroModifier extends Modifier {
       referenceElement = document.querySelector(referenceElement);
     }
 
-    assert('no reference element defined', referenceElement instanceof HTMLElement);
+    assert(
+      'no reference element defined',
+      referenceElement instanceof HTMLElement || referenceElement instanceof SVGElement
+    );
 
-    assert('no floating element defined', floatingElement instanceof HTMLElement);
+    assert(
+      'no floating element defined',
+      floatingElement instanceof HTMLElement || referenceElement instanceof SVGElement
+    );
 
     assert(
       'reference and floating elements cannot be the same element',
