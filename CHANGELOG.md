@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/camskene/ember-velcro/compare/v1.0.0...v1.0.1) (2022-10-02)
+
+
+### Bug Fixes
+
+* **modifier:** support SVGElement ([abab33b](https://github.com/camskene/ember-velcro/commit/abab33be4b70bacec9823ecc0ee93531a6d65331))
+
 # 1.0.0 (2022-09-27)
 
 
