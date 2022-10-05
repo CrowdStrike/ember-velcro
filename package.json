@@ -1,4 +1,17 @@
 {
   "name": "@ember-velcro/monorepo-root",
-  "private": true
+  "private": true,
+  "scripts": {
+    "prepare": "pnpm build",
+    "build": "pnpm --filter ember-velcro build",
+    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:tests": "pnpm --filter test-app start",
+    "start:addon": "pnpm --filter ember-velcro start --no-watch.clearScreen",
+    "test": "pnpm --filter test-app test",
+    "lint": "pnpm --filter '*' lint",
+    "lint:fix": "pnpm --filter '*' lint:fix"
+  },
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
 }
