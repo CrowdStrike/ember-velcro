@@ -4,7 +4,7 @@
 
 * `git clone <repository-url>`
 * `cd ember-velcro`
-* `yarn install`
+* `pnpm install`
 
 ## Linting
 

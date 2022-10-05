@@ -92,7 +92,13 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install github:camskene/ember-velcro
+npm install ember-velcro
+# or
+yarn install ember-velcro
+# or
+pnpm install ember-velcro
+# or
+ember install ember-velcro
 ```
 
 Contributing
