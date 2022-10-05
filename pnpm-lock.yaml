@@ -25,9 +25,11 @@ importers:
       babel-eslint: ^10.1.0
       broccoli-asset-rev: ^3.0.0
       concurrently: ^7.4.0
+      ember-cli-htmlbars: ^6.1.0
       ember-functions-as-helper-polyfill: ^2.1.1
       ember-modifier: ^3.2.7
       ember-source: ~4.7.0
+      ember-template-lint: ^4.10.1
       eslint: ^7.0.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-decorator-position: ^5.0.1
@@ -62,7 +64,9 @@ importers:
       babel-eslint: 10.1.0_eslint@7.32.0
       broccoli-asset-rev: 3.0.0
       concurrently: 7.4.0
+      ember-cli-htmlbars: 6.1.1
       ember-source: 4.7.0_wfdvla2jorjoj23kkavho2upde
+      ember-template-lint: 4.14.0_ember-cli-htmlbars@6.1.1
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-decorator-position: 5.0.1_eslint@7.32.0
@@ -246,6 +250,7 @@ packages:
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@babel/generator/7.19.3:
     resolution: {integrity: sha512-fqVZnmp1ncvZU757UzDheKZpfPgatqY59XtW2/j/18H7u76akb8xqvjw82f+i2UKd/ksYsSick/BCLQUUtJ/qQ==}
@@ -420,6 +425,7 @@ packages:
       '@babel/types': 7.19.3
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@babel/helper-optimise-call-expression/7.18.6:
     resolution: {integrity: sha512-HP59oD9/fEHQkdcbgFCnbmgH5vIQTJbxh2yf+CdM89/glUNnuzr87Q8GIjGEnOktTROemO0Pe0iPAYbqZuOUiA==}
@@ -557,6 +563,7 @@ packages:
       '@babel/types': 7.19.3
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@babel/highlight/7.18.6:
     resolution: {integrity: sha512-u7stbOuYjaPezCuLj29hNW1v64M2Md2qupEKP1fHc7WdOA3DgLh37suiSrZYY7haUB7iBeQZ9P1uiRF359do3g==}
@@ -751,7 +758,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.19.3_supports-color@8.1.1
+      '@babel/core': 7.19.3
       '@babel/helper-plugin-utils': 7.19.0
       '@babel/plugin-syntax-nullish-coalescing-operator': 7.8.3_@babel+core@7.19.3
 
@@ -794,7 +801,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.19.3_supports-color@8.1.1
+      '@babel/core': 7.19.3
       '@babel/helper-plugin-utils': 7.19.0
       '@babel/helper-skip-transparent-expression-wrappers': 7.18.9
       '@babel/plugin-syntax-optional-chaining': 7.8.3_@babel+core@7.19.3
@@ -943,7 +950,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.19.3_supports-color@8.1.1
+      '@babel/core': 7.19.3
       '@babel/helper-plugin-utils': 7.19.0
 
   /@babel/plugin-syntax-numeric-separator/7.10.4_@babel+core@7.19.3:
@@ -975,7 +982,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.19.3_supports-color@8.1.1
+      '@babel/core': 7.19.3
       '@babel/helper-plugin-utils': 7.19.0
 
   /@babel/plugin-syntax-private-property-in-object/7.14.5_@babel+core@7.19.3:
@@ -1766,6 +1773,7 @@ packages:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@babel/types/7.19.3:
     resolution: {integrity: sha512-hGCaQzIY22DJlDh9CH7NOxgKkFjBk0Cw9xDO1Xmh2151ti7wiGfQ3LauXzL4HP1fmFlTX6XjpRETTpUcv7wQLw==}
@@ -4236,7 +4244,7 @@ packages:
       '@babel/core': ^7.0.0
       webpack: '>=2'
     dependencies:
-      '@babel/core': 7.19.3_supports-color@8.1.1
+      '@babel/core': 7.19.3
       find-cache-dir: 3.3.2
       loader-utils: 2.0.2
       make-dir: 3.1.0
@@ -6793,6 +6801,7 @@ packages:
     dependencies:
       ms: 2.1.2
       supports-color: 8.1.1
+    dev: true
 
   /decamelize-keys/1.1.0:
     resolution: {integrity: sha512-ocLWuYzRPoS9bfiSdDd3cxvrzovVMZnRDVEzAs+hWIVXGDbHxWMECij2OBuyB/An0FFW/nLuq6Kv1i/YC5Qfzg==}

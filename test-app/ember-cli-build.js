@@ -7,7 +7,7 @@ module.exports = function (defaults) {
     // Add options here
   });
 
- const { maybeEmbroider } = require('@embroider/test-setup');
+  const { maybeEmbroider } = require('@embroider/test-setup');
 
   return maybeEmbroider(app);
 };
