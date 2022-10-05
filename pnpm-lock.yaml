@@ -1,110 +1,114 @@
 lockfileVersion: 5.4
 
-specifiers:
-  '@babel/core': ^7.19.3
-  '@ember/optional-features': ^2.0.0
-  '@ember/test-helpers': ^2.8.1
-  '@embroider/test-setup': ^1.8.3
-  '@floating-ui/dom': ^1.0.1
-  '@glimmer/component': ^1.1.2
-  '@glimmer/tracking': ^1.1.2
-  '@nullvoxpopuli/eslint-configs': ^2.2.58
-  '@semantic-release/changelog': ^6.0.0
-  '@semantic-release/git': ^10.0.0
-  babel-eslint: ^10.1.0
-  broccoli-asset-rev: ^3.0.0
-  ember-auto-import: ^2.4.2
-  ember-cli: ~4.7.0
-  ember-cli-babel: ^7.26.11
-  ember-cli-dependency-checker: ^3.3.1
-  ember-cli-htmlbars: ^6.1.0
-  ember-cli-inject-live-reload: ^2.1.0
-  ember-cli-postcss: ^8.2.0
-  ember-cli-sri: ^2.1.1
-  ember-cli-terser: ^4.0.2
-  ember-disable-prototype-extensions: ^1.1.3
-  ember-functions-as-helper-polyfill: ^2.1.1
-  ember-load-initializers: ^2.1.2
-  ember-modifier: ^3.2.7
-  ember-page-title: ^7.0.0
-  ember-qunit: ^5.1.5
-  ember-resolver: ^8.0.3
-  ember-source: ~4.7.0
-  ember-source-channel-url: ^3.0.0
-  ember-template-lint: ^4.10.1
-  ember-try: ^2.0.0
-  eslint: ^7.0.0
-  eslint-config-prettier: ^8.5.0
-  eslint-plugin-decorator-position: ^5.0.1
-  eslint-plugin-ember: ^11.0.2
-  eslint-plugin-import: ^2.26.0
-  eslint-plugin-node: ^11.1.0
-  eslint-plugin-prettier: ^4.2.1
-  eslint-plugin-qunit: ^7.3.1
-  loader.js: ^4.7.0
-  npm-run-all: ^4.1.5
-  prettier: ^2.7.1
-  qunit: ^2.19.1
-  qunit-console-grouper: ^0.3.0
-  qunit-dom: ^2.0.0
-  semantic-release: ^19.0.0
-  tailwindcss: ^3.1.8
-  typescript: ^4.8.4
-  webpack: ^5.74.0
+importers:
 
-dependencies:
-  '@floating-ui/dom': 1.0.2
-  ember-auto-import: 2.4.2_webpack@5.74.0
-  ember-cli-babel: 7.26.11
-  ember-cli-htmlbars: 6.1.1
-  ember-modifier: 3.2.7_@babel+core@7.19.3
+  .:
+    specifiers: {}
 
-devDependencies:
-  '@babel/core': 7.19.3
-  '@ember/optional-features': 2.0.0
-  '@ember/test-helpers': 2.8.1_stkpchyss7keuhgemteo7qzure
-  '@embroider/test-setup': 1.8.3
-  '@glimmer/component': 1.1.2_@babel+core@7.19.3
-  '@glimmer/tracking': 1.1.2
-  '@nullvoxpopuli/eslint-configs': 2.2.59_typescript@4.8.4
-  '@semantic-release/changelog': 6.0.1_semantic-release@19.0.5
-  '@semantic-release/git': 10.0.1_semantic-release@19.0.5
-  babel-eslint: 10.1.0_eslint@7.32.0
-  broccoli-asset-rev: 3.0.0
-  ember-cli: 4.7.0
-  ember-cli-dependency-checker: 3.3.1_ember-cli@4.7.0
-  ember-cli-inject-live-reload: 2.1.0
-  ember-cli-postcss: 8.2.0
-  ember-cli-sri: 2.1.1
-  ember-cli-terser: 4.0.2
-  ember-disable-prototype-extensions: 1.1.3
-  ember-functions-as-helper-polyfill: 2.1.1_ember-source@4.7.0
-  ember-load-initializers: 2.1.2_@babel+core@7.19.3
-  ember-page-title: 7.0.0
-  ember-qunit: 5.1.5_m2vpijm5kklvqmlfibufmotnbi
-  ember-resolver: 8.0.3_@babel+core@7.19.3
-  ember-source: 4.7.0_wfdvla2jorjoj23kkavho2upde
-  ember-source-channel-url: 3.0.0
-  ember-template-lint: 4.14.0_ember-cli-htmlbars@6.1.1
-  ember-try: 2.0.0
-  eslint: 7.32.0
-  eslint-config-prettier: 8.5.0_eslint@7.32.0
-  eslint-plugin-decorator-position: 5.0.1_eslint@7.32.0
-  eslint-plugin-ember: 11.0.6_eslint@7.32.0
-  eslint-plugin-import: 2.26.0_eslint@7.32.0
-  eslint-plugin-node: 11.1.0_eslint@7.32.0
-  eslint-plugin-prettier: 4.2.1_7gsvg5lgwpfdww3i7smtqxamuy
-  eslint-plugin-qunit: 7.3.1_eslint@7.32.0
-  loader.js: 4.7.0
-  npm-run-all: 4.1.5
-  prettier: 2.7.1
-  qunit: 2.19.1
-  qunit-console-grouper: 0.3.0
-  qunit-dom: 2.0.0
-  semantic-release: 19.0.5
-  tailwindcss: 3.1.8
-  typescript: 4.8.4
-  webpack: 5.74.0
+  ember-velcro:
+    specifiers:
+      '@babel/core': ^7.19.3
+      '@ember/optional-features': ^2.0.0
+      '@ember/test-helpers': ^2.8.1
+      '@embroider/test-setup': ^1.8.3
+      '@floating-ui/dom': ^1.0.1
+      '@glimmer/component': ^1.1.2
+      '@glimmer/tracking': ^1.1.2
+      '@nullvoxpopuli/eslint-configs': ^2.2.58
+      '@semantic-release/changelog': ^6.0.0
+      '@semantic-release/git': ^10.0.0
+      babel-eslint: ^10.1.0
+      broccoli-asset-rev: ^3.0.0
+      ember-auto-import: ^2.4.2
+      ember-cli: ~4.7.0
+      ember-cli-babel: ^7.26.11
+      ember-cli-dependency-checker: ^3.3.1
+      ember-cli-htmlbars: ^6.1.0
+      ember-cli-inject-live-reload: ^2.1.0
+      ember-cli-postcss: ^8.2.0
+      ember-cli-sri: ^2.1.1
+      ember-cli-terser: ^4.0.2
+      ember-disable-prototype-extensions: ^1.1.3
+      ember-functions-as-helper-polyfill: ^2.1.1
+      ember-load-initializers: ^2.1.2
+      ember-modifier: ^3.2.7
+      ember-page-title: ^7.0.0
+      ember-qunit: ^5.1.5
+      ember-resolver: ^8.0.3
+      ember-source: ~4.7.0
+      ember-source-channel-url: ^3.0.0
+      ember-template-lint: ^4.10.1
+      ember-try: ^2.0.0
+      eslint: ^7.0.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-decorator-position: ^5.0.1
+      eslint-plugin-ember: ^11.0.2
+      eslint-plugin-import: ^2.26.0
+      eslint-plugin-node: ^11.1.0
+      eslint-plugin-prettier: ^4.2.1
+      eslint-plugin-qunit: ^7.3.1
+      loader.js: ^4.7.0
+      npm-run-all: ^4.1.5
+      prettier: ^2.7.1
+      qunit: ^2.19.1
+      qunit-console-grouper: ^0.3.0
+      qunit-dom: ^2.0.0
+      semantic-release: ^19.0.0
+      tailwindcss: ^3.1.8
+      typescript: ^4.8.4
+      webpack: ^5.74.0
+    dependencies:
+      '@floating-ui/dom': 1.0.2
+      ember-auto-import: 2.4.2_webpack@5.74.0
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: 6.1.1
+      ember-modifier: 3.2.7_@babel+core@7.19.3
+    devDependencies:
+      '@babel/core': 7.19.3
+      '@ember/optional-features': 2.0.0
+      '@ember/test-helpers': 2.8.1_stkpchyss7keuhgemteo7qzure
+      '@embroider/test-setup': 1.8.3
+      '@glimmer/component': 1.1.2_@babel+core@7.19.3
+      '@glimmer/tracking': 1.1.2
+      '@nullvoxpopuli/eslint-configs': 2.2.59_typescript@4.8.4
+      '@semantic-release/changelog': 6.0.1_semantic-release@19.0.5
+      '@semantic-release/git': 10.0.1_semantic-release@19.0.5
+      babel-eslint: 10.1.0_eslint@7.32.0
+      broccoli-asset-rev: 3.0.0
+      ember-cli: 4.7.0
+      ember-cli-dependency-checker: 3.3.1_ember-cli@4.7.0
+      ember-cli-inject-live-reload: 2.1.0
+      ember-cli-postcss: 8.2.0
+      ember-cli-sri: 2.1.1
+      ember-cli-terser: 4.0.2
+      ember-disable-prototype-extensions: 1.1.3
+      ember-functions-as-helper-polyfill: 2.1.1_ember-source@4.7.0
+      ember-load-initializers: 2.1.2_@babel+core@7.19.3
+      ember-page-title: 7.0.0
+      ember-qunit: 5.1.5_m2vpijm5kklvqmlfibufmotnbi
+      ember-resolver: 8.0.3_@babel+core@7.19.3
+      ember-source: 4.7.0_wfdvla2jorjoj23kkavho2upde
+      ember-source-channel-url: 3.0.0
+      ember-template-lint: 4.14.0_ember-cli-htmlbars@6.1.1
+      ember-try: 2.0.0
+      eslint: 7.32.0
+      eslint-config-prettier: 8.5.0_eslint@7.32.0
+      eslint-plugin-decorator-position: 5.0.1_eslint@7.32.0
+      eslint-plugin-ember: 11.0.6_eslint@7.32.0
+      eslint-plugin-import: 2.26.0_eslint@7.32.0
+      eslint-plugin-node: 11.1.0_eslint@7.32.0
+      eslint-plugin-prettier: 4.2.1_7gsvg5lgwpfdww3i7smtqxamuy
+      eslint-plugin-qunit: 7.3.1_eslint@7.32.0
+      loader.js: 4.7.0
+      npm-run-all: 4.1.5
+      prettier: 2.7.1
+      qunit: 2.19.1
+      qunit-console-grouper: 0.3.0
+      qunit-dom: 2.0.0
+      semantic-release: 19.0.5
+      tailwindcss: 3.1.8
+      typescript: 4.8.4
+      webpack: 5.74.0
 
 packages:
 
@@ -1921,7 +1925,7 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.6
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
 
   /@types/eslint/7.29.0:
     resolution: {integrity: sha512-VNcvioYDH8/FxaeTKkM4/TiTwt6pBV9E3OfGmvaw8tPl0rrHCJ4Ll15HRT+pMiFAf/MLQvAzC+6RzUMEL9Ceng==}
@@ -1933,7 +1937,7 @@ packages:
   /@types/eslint/8.4.6:
     resolution: {integrity: sha512-/fqTbjxyFUaYNO7VcW5g+4npmqVACz1bB7RTHYuLj+PRjw9hrCwrUXVQFpChUS0JsyEFvMZ7U/PfmvWgxJhI9g==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
 
   /@types/estree/0.0.51:
@@ -1941,7 +1945,6 @@ packages:
 
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-    dev: true
 
   /@types/express-serve-static-core/4.17.31:
     resolution: {integrity: sha512-DxMhY+NAsTwMMFHBTtJFNp5qiHKJ7TeqOo23zVEM9alT1Ml27Q3xcTH0xwxn7Q0BbMcVEJOs/7aQtUWupUQN3Q==}
@@ -1981,7 +1984,7 @@ packages:
   /@types/glob/8.0.0:
     resolution: {integrity: sha512-l6NQsDDyQUVeoTynNpC9uRvCUint/gSUXQA2euwmTuWGvPY5LSDUu6tkCtJB2SvGQlJQzLaKqcGZP4//7EDveA==}
     dependencies:
-      '@types/minimatch': 3.0.5
+      '@types/minimatch': 5.1.2
       '@types/node': 18.8.2
 
   /@types/json-schema/7.0.11:
@@ -2006,7 +2009,6 @@ packages:
 
   /@types/minimatch/5.1.2:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
-    dev: true
 
   /@types/minimist/1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
