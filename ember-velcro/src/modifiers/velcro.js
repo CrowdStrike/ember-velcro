@@ -3,7 +3,8 @@ import { registerDestructor } from '@ember/destroyable';
 
 import { autoUpdate, computePosition, flip, hide, offset, shift } from '@floating-ui/dom';
 import Modifier from 'ember-modifier';
-import { velcroData } from 'ember-velcro/middleware/velcro-data';
+
+import { velcroData } from '../middleware/velcro-data';
 
 export default class VelcroModifier extends Modifier {
   modify(
