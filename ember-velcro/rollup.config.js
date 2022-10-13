@@ -1,4 +1,4 @@
-import babel from '@rollup/plugin-babel';
+import ts from 'rollup-plugin-ts';
 import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
 
@@ -28,8 +28,24 @@ export default {
     //
     // By default, this will load the actual babel config from the file
     // babel.config.json.
-    babel({
-      babelHelpers: 'bundled',
+    ts({
+      // can be changed to swc or other transpilers later
+      // but we need the ember plugins converted first
+      // (template compilation and co-location)
+      transpiler: 'babel',
+      browserslist: ['last 2 firefox versions', 'last 2 chrome versions'],
+      tsconfig: {
+        fileName: 'tsconfig.json',
+        hook: (config) => ({
+          ...config,
+          declaration: true,
+          declarationMap: true,
+          // See: https://devblogs.microsoft.com/typescript/announcing-typescript-4-5/#beta-delta
+          // Allows us to use `exports` to define types per export
+          // However, we can't use that feature until the minimum supported TS is 4.7+
+          declarationDir: './dist',
+        }),
+      },
     }),
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
@@ -50,8 +66,8 @@ export default {
     // Copy Readme and License into published package
     copy({
       targets: [
-        { src: '<%= pathFromAddonToRoot %>/README.md', dest: '.' },
-        { src: '<%= pathFromAddonToRoot %>/LICENSE.md', dest: '.' },
+        { src: '../README.md', dest: '.' },
+        { src: '../LICENSE.md', dest: '.' },
       ],
     }),
   ],
