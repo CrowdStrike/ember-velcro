@@ -23,13 +23,13 @@ interface Signature {
   };
   Blocks: {
     default: [
-      modifiers: {
+      velcro: {
         hook: ModifierLike<HookSignature>;
         loop: ModifierLike<{
           Element: HTMLElement;
         }>;
-      };
-      data: MiddlewareArguments;
+        data: MiddlewareArguments;
+      }
     ];
   };
 }
