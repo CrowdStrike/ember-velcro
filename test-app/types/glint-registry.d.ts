@@ -16,6 +16,17 @@ declare module '@glint/environment-ember-loose/registry' {
     Velcro: typeof Velcro;
     velcro: typeof velcro;
 
-    'object-keys': HelperLike<{ Args: { Positional: [Record<string, unknown>]}, Return: string}>
+    'object-keys': HelperLike<{
+      Args: {
+        Positional: [Record<string, unknown>]
+      },
+      Return: string
+    }>
+    'page-title': HelperLike<{
+      Args: {
+        Positional: [string]
+      };
+      Return: string;
+    }>
   }
 }

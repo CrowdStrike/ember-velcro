@@ -23,13 +23,13 @@ interface Signature {
   };
   Blocks: {
     default: [
-      api: {
+      modifiers: {
         hook: ModifierLike<HookSignature>;
         loop: ModifierLike<{
           Element: HTMLElement;
         }>;
-        data: MiddlewareArguments;
-      }
+      };
+      data: MiddlewareArguments;
     ];
   };
 }
