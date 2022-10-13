@@ -1,10 +1,14 @@
 import { set } from '@ember/object';
-import { find, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 
-import { addDataAttributes, resetTestingContainerDimensions } from '../velcro-test-helpers';
+import {
+  addDataAttributes,
+  findElement,
+  resetTestingContainerDimensions,
+} from '../velcro-test-helpers';
 
 module('Integration | Modifier | velcro', function (hooks) {
   setupRenderingTest(hooks);
@@ -67,6 +71,7 @@ module('Integration | Modifier | velcro', function (hooks) {
   module('@offsetOptions', function () {
     test('can pass in distance', async function (assert) {
       let offsetDistance = 10;
+
       set(this, 'offsetDistance', offsetDistance);
 
       await render(hbs`
@@ -84,8 +89,8 @@ module('Integration | Modifier | velcro', function (hooks) {
         </div>
       `);
 
-      let velcro1 = find('#velcro1');
-      let velcro2 = find('#velcro2');
+      let velcro1 = findElement('#velcro1');
+      let velcro2 = findElement('#velcro2');
 
       assert.strictEqual(
         velcro1.getBoundingClientRect().top + offsetDistance,
@@ -95,6 +100,7 @@ module('Integration | Modifier | velcro', function (hooks) {
 
     test('can pass in skidding', async function (assert) {
       let offsetSkidding = 10;
+
       set(this, 'offsetSkidding', { crossAxis: offsetSkidding });
 
       await render(hbs`
@@ -109,8 +115,8 @@ module('Integration | Modifier | velcro', function (hooks) {
         </div>
       `);
 
-      let velcro1 = find('#velcro1');
-      let velcro2 = find('#velcro2');
+      let velcro1 = findElement('#velcro1');
+      let velcro2 = findElement('#velcro2');
 
       assert.strictEqual(
         velcro1.getBoundingClientRect().left + offsetSkidding,
