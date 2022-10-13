@@ -46,7 +46,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/pnpm
-      - uses: wagoid/commitlint-github-action@v4.1.9
+      - uses: wagoid/commitlint-github-action@v5.2.0
         with:
           configFile: 'commitlint.config.cjs'
 
@@ -62,6 +62,34 @@ jobs:
       - uses: ./.github/actions/assert-build
 
 
+  typecheck:
+    name: '${{ matrix.typescript-scenario }}'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    needs: [build]
+    continue-on-error: true
+    strategy:
+      fail-fast: true
+      matrix:
+        typescript-scenario:
+          - typescript@4.5
+          - typescript@4.6
+          - typescript@4.7
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/pnpm
+      - uses: ./.github/actions/download-built-package
+      - name: 'Change TS to ${{ matrix.typescript-scenario }}'
+        run: 'pnpm add --save-dev ${{ matrix.typescript-scenario}}'
+        working-directory: ./test-app
+      - name: 'Type checking'
+        run: |
+          pnpm --filter test-app exec tsc -v;
+          pnpm --filter test-app exec glint --version;
+          pnpm --filter test-app exec glint;
+
+  
 
 
   default_tests:
@@ -129,6 +157,7 @@ jobs:
     needs:
       - default_tests
       - floating_tests
+      - typecheck
       - try_scenarios
 
     steps:
@@ -139,7 +168,7 @@ jobs:
       - uses: ./.github/actions/download-built-package
       - name: Release
         run: ./node_modules/.bin/semantic-release
-        working-directory: ./ember-resources
+        working-directory: ./ember-velcro
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
