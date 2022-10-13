@@ -7,16 +7,28 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://camskene@github.com/camskene/ember-velcro.git"
+    "url": "git+https://CrowdStrike@github.com/CrowdStrike/ember-velcro.git",
+    "directory": "ember-velcro"
   },
   "license": "MIT",
-  "author": "Cam Skene",
+  "author": "CrowdStrike UX Team",
   "directories": {
     "test": "tests"
   },
   "exports": {
+    ".": "./dist/index.js",
     "./*": "./dist/*",
     "./addon-main": "./addon-main.js"
+  },
+  "typesVersions": {
+    "*": {
+      "glint": [
+        "./glint.d.ts"
+      ],
+      "*": [
+        "./dist/*"
+      ]
+    }
   },
   "files": [
     "addon-main.js",
@@ -34,6 +46,10 @@
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
     "prepack": "rollup --config ./rollup.config.js"
   },
+  "peerDependencies": {
+    "@glint/environment-ember-loose": "^0.9.4",
+    "@glint/template": "^0.9.5"
+  },
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0",
     "@floating-ui/dom": "^1.0.1",
@@ -48,10 +64,13 @@
     "@embroider/addon-dev": "^2.0.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "@glint/template": "^0.9.5",
     "@nullvoxpopuli/eslint-configs": "^2.2.58",
     "@rollup/plugin-babel": "^5.3.1",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/git": "^10.0.0",
+    "@types/ember__debug": "^4.0.1",
+    "@types/ember__destroyable": "^4.0.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^7.4.0",

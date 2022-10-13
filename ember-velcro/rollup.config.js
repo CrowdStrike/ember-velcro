@@ -15,7 +15,7 @@ export default {
   plugins: [
     // These are the modules that users should be able to import from your
     // addon. Anything not listed here may get optimized away.
-    addon.publicEntrypoints(['components/**/*.js', 'modifiers/**/*.js']),
+    addon.publicEntrypoints(['index.js', 'components/**/*.js', 'modifiers/**/*.js']),
 
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
