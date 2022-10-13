@@ -14,5 +14,10 @@
   },
   "dependencies": {
     "concurrently": "^7.4.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/eslint": "^7.29.0"
+    }
   }
 }
