@@ -20,7 +20,11 @@
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "embroider:start": "EMBROIDER_TEST_SETUP_FORCE=embroider EMBROIDER_TEST_SETUP_OPTIONS=optimized ember s",
+    "embroider:test": "EMBROIDER_TEST_SETUP_FORCE=embroider EMBROIDER_TEST_SETUP_OPTIONS=optimized ember test",
+    "try:embroider:start": "ember try:one embroider-optimized --- ember s",
+    "try:embroider:test": "ember try:one embroider-optimized"
   },
   "dependencies": {
     "ember-velcro": "link:../ember-velcro"
@@ -29,6 +33,10 @@
     "@babel/core": "^7.19.3",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.8.1",
+    "@embroider/compat": "^1.8.3",
+    "@embroider/core": "^1.8.3",
+    "@embroider/test-setup": "^1.8.3",
+    "@embroider/webpack": "^1.8.3",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@nullvoxpopuli/eslint-configs": "^2.2.58",
@@ -50,7 +58,9 @@
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",
     "ember-source": "~4.6.0",
+    "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^4.10.1",
+    "ember-try": "^2.0.0",
     "ember-welcome-page": "^6.2.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
@@ -63,6 +73,7 @@
     "prettier": "^2.7.1",
     "qunit": "^2.19.1",
     "qunit-dom": "^2.0.0",
+    "tailwindcss": "^3.1.8",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0"
   },

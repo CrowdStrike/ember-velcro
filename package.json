@@ -9,7 +9,8 @@
     "start:addon": "pnpm --filter ember-velcro start --no-watch.clearScreen",
     "test": "pnpm --filter test-app test",
     "lint": "pnpm --filter '*' lint",
-    "lint:fix": "pnpm --filter '*' lint:fix"
+    "lint:fix": "pnpm --filter '*' lint:fix",
+    "ci:update": "npx ember-ci-update"
   },
   "dependencies": {
     "concurrently": "^7.4.0"

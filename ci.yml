@@ -1,0 +1,23 @@
+provider: github
+template: "v2-addon"
+
+# ---------------------
+
+addon: './ember-velcro'
+testApp: './test-app'
+
+lint:
+  commits: true
+  cmd: 'pnpm lint'
+
+build:
+  run: 'pnpm build'
+  expect: |
+    components/velcro/index.js
+    modifiers/velcro.js
+
+support:
+  ember-try: true
+
+release:
+  semantic: true
