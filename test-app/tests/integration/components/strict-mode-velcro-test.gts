@@ -6,7 +6,7 @@ import { Velcro } from 'ember-velcro';
 
 import { resetTestingContainerDimensions } from '../velcro-test-helpers';
 
-module('Integration | Component | velcro', function (hooks) {
+module('Integration | Component | velcro (strict mode)', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
