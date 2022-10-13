@@ -1,8 +1,13 @@
 import '@glint/environment-ember-loose';
 import '@glint/environment-ember-template-imports';
 
+/**
+  * NOTE: the '@glint/environment-ember-loose' this library's scope is different
+  *       from the app -- consider reporting a bug (somewhere) after further investigation
+  */
 import 'ember-velcro/glint';
 
+import type { HelperLike } from '@glint/template';
 import type { Velcro, velcro } from 'ember-velcro';
 
 declare module '@glint/environment-ember-loose/registry' {
@@ -10,5 +15,7 @@ declare module '@glint/environment-ember-loose/registry' {
     /* local stuff for the app here */
     Velcro: typeof Velcro;
     velcro: typeof velcro;
+
+    'object-keys': HelperLike<{ Args: { Positional: [Record<string, unknown>]}, Return: string}>
   }
 }
