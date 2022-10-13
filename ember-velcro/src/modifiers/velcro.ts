@@ -14,7 +14,7 @@ import type { Middleware, Placement, Strategy } from '@floating-ui/dom';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TODO = any;
 
-interface Signature {
+export interface Signature {
   Element: HTMLElement;
   Args: {
     Positional: [referenceElement: string | HTMLElement | SVGElement];
@@ -24,6 +24,7 @@ interface Signature {
       placement?: Placement;
       flipOptions?: TODO;
       shiftOptions?: TODO;
+      hideOptions?: TODO;
       middleware?: Middleware[];
       setVelcroData?: Middleware['fn'];
     };
