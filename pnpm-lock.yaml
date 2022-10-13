@@ -264,6 +264,9 @@ importers:
       tailwindcss: 3.1.8
       typescript: 4.7.4
       webpack: 5.74.0
+    dependenciesMeta:
+      ember-velcro:
+        injected: true
 
 packages:
 
@@ -3390,7 +3393,7 @@ packages:
     resolution: {integrity: sha512-d2eU8O5QtqDd/ZqMV3yzIbULh8wPx6UMvxwJ0ThnNgCIFcZLO98deM5w6m5aU6K48Xu1wWzjJBa0jktGSFWXJw==}
     dependencies:
       '@types/ember': 4.0.1_@babel+core@7.19.3
-      '@types/ember__object': 4.0.4_@babel+core@7.19.3
+      '@types/ember__object': 4.0.4
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -3400,7 +3403,7 @@ packages:
     resolution: {integrity: sha512-ggF6EoKp7o0FKmZ9UKUzsLXHfcho+mKFnHQfUL1k/sUjkHxSd33fIATYuNIGZARRn2JzhYYfRqkgRIRBsoEiaQ==}
     dependencies:
       '@types/ember': 4.0.1_@babel+core@7.19.3
-      '@types/ember__object': 4.0.4_@babel+core@7.19.3
+      '@types/ember__object': 4.0.4
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -3409,7 +3412,7 @@ packages:
   /@types/ember__controller/4.0.1:
     resolution: {integrity: sha512-4hX+CjjX2KBpcOyEpcs1SSBmxYlavdAZqcyR23JUnBS+dGjlku15BQu6ZXFKIf84x7izNhC+TrYvAOeLE/Af3w==}
     dependencies:
-      '@types/ember__object': 4.0.4_@babel+core@7.19.3
+      '@types/ember__object': 4.0.4
     dev: true
 
   /@types/ember__controller/4.0.1_@babel+core@7.19.3:
@@ -4937,7 +4940,7 @@ packages:
       '@babel/core': ^7.0.0
       webpack: '>=2'
     dependencies:
-      '@babel/core': 7.19.3_supports-color@8.1.1
+      '@babel/core': 7.19.3
       find-cache-dir: 3.3.2
       loader-utils: 2.0.2
       make-dir: 3.1.0
@@ -9072,7 +9075,7 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.39.0_hxadhbs2xogijvk7vq4t2azzbu
+      '@typescript-eslint/parser': 5.39.0_3rubbgt5ekhqrcgx4uwls3neim
       debug: 3.2.7
       eslint: 7.32.0
       eslint-import-resolver-node: 0.3.6
@@ -9196,7 +9199,7 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.39.0_hxadhbs2xogijvk7vq4t2azzbu
+      '@typescript-eslint/parser': 5.39.0_3rubbgt5ekhqrcgx4uwls3neim
       array-includes: 3.1.5
       array.prototype.flat: 1.3.0
       debug: 2.6.9

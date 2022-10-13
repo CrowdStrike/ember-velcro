@@ -126,6 +126,7 @@ module('Integration | Component | velcro', function (hooks) {
   module('@offsetOptions', function () {
     test('can pass in distance', async function (assert) {
       let offsetDistance = 10;
+
       this.set('offsetDistance', offsetDistance);
 
       await render(hbs`
@@ -154,6 +155,7 @@ module('Integration | Component | velcro', function (hooks) {
 
     test('can pass in skidding', async function (assert) {
       let offsetSkidding = 10;
+
       this.set('offsetSkidding', { crossAxis: offsetSkidding });
 
       await render(hbs`

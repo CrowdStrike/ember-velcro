@@ -11,6 +11,7 @@ import type { Middleware, Placement, Strategy } from '@floating-ui/dom';
 /**
  * TODO: figure out how to get the real types out of @floating-ui/dom
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TODO = any;
 
 interface Signature {

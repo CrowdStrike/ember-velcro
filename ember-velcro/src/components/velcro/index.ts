@@ -5,8 +5,8 @@ import { modifier } from 'ember-modifier';
 
 import VelcroModifier from '../../modifiers/velcro';
 
-import type { ModifierLike } from '@glint/template';
 import type { MiddlewareArguments } from '@floating-ui/dom';
+import type { ModifierLike } from '@glint/template';
 
 interface HookSignature {
   Element: HTMLElement | SVGElement;
@@ -14,11 +14,11 @@ interface HookSignature {
     default: [
       hook: ModifierLike<HookSignature>,
       loop: ModifierLike<{
-        Element: HTMLElement
+        Element: HTMLElement;
       }>,
       data: MiddlewareArguments
-    ]
-  }
+    ];
+  };
 }
 
 export default class VelcroComponent extends Component {

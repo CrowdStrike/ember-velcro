@@ -29,6 +29,11 @@
   "dependencies": {
     "ember-velcro": "link:../ember-velcro"
   },
+  "dependenciesMeta": {
+    "ember-velcro": {
+      "injected": true
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@ember/optional-features": "^2.0.0",
