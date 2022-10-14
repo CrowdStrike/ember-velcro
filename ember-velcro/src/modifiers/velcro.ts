@@ -6,10 +6,35 @@ import Modifier from 'ember-modifier';
 
 import { velcroData } from '../middleware/velcro-data';
 
-export default class VelcroModifier extends Modifier {
+import type { Middleware, Placement, Strategy } from '@floating-ui/dom';
+
+/**
+ * TODO: figure out how to get the real types out of @floating-ui/dom
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type TODO = any;
+
+export interface Signature {
+  Element: HTMLElement;
+  Args: {
+    Positional: [referenceElement: string | HTMLElement | SVGElement];
+    Named: {
+      strategy?: Strategy;
+      offsetOptions?: TODO;
+      placement?: Placement;
+      flipOptions?: TODO;
+      shiftOptions?: TODO;
+      hideOptions?: TODO;
+      middleware?: Middleware[];
+      setVelcroData?: Middleware['fn'];
+    };
+  };
+}
+
+export default class VelcroModifier extends Modifier<Signature> {
   modify(
-    floatingElement,
-    [referenceElement],
+    floatingElement: Signature['Element'],
+    [_referenceElement]: Signature['Args']['Positional'],
     {
       strategy = 'fixed',
       offsetOptions = 0,
@@ -18,11 +43,12 @@ export default class VelcroModifier extends Modifier {
       shiftOptions,
       middleware = [],
       setVelcroData,
-    }
+    }: Signature['Args']['Named']
   ) {
-    if (typeof referenceElement === 'string') {
-      referenceElement = document.querySelector(referenceElement);
-    }
+    const referenceElement: null | HTMLElement | SVGElement =
+      typeof _referenceElement === 'string'
+        ? document.querySelector(_referenceElement)
+        : _referenceElement;
 
     assert(
       'no reference element defined',
@@ -31,12 +57,12 @@ export default class VelcroModifier extends Modifier {
 
     assert(
       'no floating element defined',
-      floatingElement instanceof HTMLElement || referenceElement instanceof SVGElement
+      floatingElement instanceof HTMLElement || _referenceElement instanceof SVGElement
     );
 
     assert(
       'reference and floating elements cannot be the same element',
-      floatingElement !== referenceElement
+      floatingElement !== _referenceElement
     );
 
     assert('@middleware must be an array of one or more objects', Array.isArray(middleware));
@@ -65,7 +91,7 @@ export default class VelcroModifier extends Modifier {
       Object.assign(floatingElement.style, {
         strategy,
         transform: `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`,
-        visibility: middlewareData.hide.referenceHidden ? 'hidden' : 'visible',
+        visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible',
       });
 
       setVelcroData?.(middlewareData.metadata);

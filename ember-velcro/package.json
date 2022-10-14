@@ -5,25 +5,42 @@
   "keywords": [
     "ember-addon"
   ],
+  "bugs": {
+    "url": "https://github.com/CrowdStrike/ember-velcro/issues"
+  },
+  "homepage": "https://github.com/CrowdStrike/ember-velcro#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://camskene@github.com/camskene/ember-velcro.git"
+    "url": "git+https://CrowdStrike@github.com/CrowdStrike/ember-velcro.git",
+    "directory": "ember-velcro"
   },
   "license": "MIT",
-  "author": "Cam Skene",
+  "author": "CrowdStrike UX Team",
   "directories": {
     "test": "tests"
   },
   "exports": {
+    ".": "./dist/index.js",
     "./*": "./dist/*",
     "./addon-main": "./addon-main.js"
   },
+  "typesVersions": {
+    "*": {
+      "glint": [
+        "./glint.d.ts"
+      ],
+      "*": [
+        "./dist/*"
+      ]
+    }
+  },
   "files": [
     "addon-main.js",
-    "dist"
+    "dist",
+    "glint.d.ts"
   ],
   "scripts": {
-    "build": "rollup --config",
+    "build": "rollup --config ./rollup.config.js",
     "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
     "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
     "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
@@ -32,7 +49,11 @@
     "lint:js:fix": "eslint . --fix",
     "start": "rollup --config --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
-    "prepack": "rollup --config"
+    "prepack": "rollup --config ./rollup.config.js"
+  },
+  "peerDependencies": {
+    "@glint/environment-ember-loose": "^0.9.4",
+    "@glint/template": "^0.9.5"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0",
@@ -44,13 +65,19 @@
     "@babel/core": "^7.19.3",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-proposal-decorators": "^7.19.3",
-    "@embroider/addon-dev": "^1.8.3",
+    "@babel/preset-typescript": "^7.18.6",
+    "@babel/runtime": "^7.19.4",
+    "@embroider/addon-dev": "^2.0.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "@glint/environment-ember-loose": "^0.9.5",
+    "@glint/template": "^0.9.5",
     "@nullvoxpopuli/eslint-configs": "^2.2.58",
     "@rollup/plugin-babel": "^5.3.1",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/git": "^10.0.0",
+    "@types/ember__debug": "^4.0.1",
+    "@types/ember__destroyable": "^4.0.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^7.4.0",
@@ -69,6 +96,7 @@
     "prettier": "^2.7.1",
     "rollup": "^2.79.1",
     "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-ts": "^3.0.2",
     "semantic-release": "^19.0.0",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0"
@@ -101,9 +129,5 @@
       "@semantic-release/github",
       "@semantic-release/git"
     ]
-  },
-  "bugs": {
-    "url": "https://github.com/CrowdStrike/ember-velcro/issues"
-  },
-  "homepage": "https://github.com/CrowdStrike/ember-velcro#readme"
+  }
 }

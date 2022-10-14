@@ -1,10 +1,13 @@
-import { set } from '@ember/object';
-import { find, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 
-import { addDataAttributes, resetTestingContainerDimensions } from '../velcro-test-helpers';
+import {
+  addDataAttributes,
+  findElement,
+  resetTestingContainerDimensions,
+} from '../velcro-test-helpers';
 
 module('Integration | Modifier | velcro', function (hooks) {
   setupRenderingTest(hooks);
@@ -22,8 +25,13 @@ module('Integration | Modifier | velcro', function (hooks) {
     assert.ok(true);
   });
 
-  module('@placement', function () {
-    set(this, 'addDataAttributes', addDataAttributes());
+  module('@placement', function (hooks) {
+    hooks.beforeEach(function () {
+      this.setProperties({
+        addDataAttributes: addDataAttributes(),
+      });
+    });
+
     test('has default value', async function (assert) {
       await render(hbs`
         <div id="velcro-reference">Velcro reference</div>
@@ -43,8 +51,13 @@ module('Integration | Modifier | velcro', function (hooks) {
     });
   });
 
-  module('@strategy', function () {
-    set(this, 'addDataAttributes', addDataAttributes());
+  module('@strategy', function (hooks) {
+    hooks.beforeEach(function () {
+      this.setProperties({
+        addDataAttributes: addDataAttributes(),
+      });
+    });
+
     test('has default value', async function (assert) {
       await render(hbs`
         <div id="velcro-reference">Velcro reference</div>
@@ -67,7 +80,8 @@ module('Integration | Modifier | velcro', function (hooks) {
   module('@offsetOptions', function () {
     test('can pass in distance', async function (assert) {
       let offsetDistance = 10;
-      set(this, 'offsetDistance', offsetDistance);
+
+      this.setProperties({ offsetDistance });
 
       await render(hbs`
         {{!-- render 2 Velcro's side by side, pass one a distance offset and compare the top values --}}
@@ -84,8 +98,8 @@ module('Integration | Modifier | velcro', function (hooks) {
         </div>
       `);
 
-      let velcro1 = find('#velcro1');
-      let velcro2 = find('#velcro2');
+      let velcro1 = findElement('#velcro1');
+      let velcro2 = findElement('#velcro2');
 
       assert.strictEqual(
         velcro1.getBoundingClientRect().top + offsetDistance,
@@ -95,7 +109,8 @@ module('Integration | Modifier | velcro', function (hooks) {
 
     test('can pass in skidding', async function (assert) {
       let offsetSkidding = 10;
-      set(this, 'offsetSkidding', { crossAxis: offsetSkidding });
+
+      this.setProperties({ offsetSkidding: { crossAxis: offsetSkidding } });
 
       await render(hbs`
         {{!-- render 2 Velcro's atop the other, pass one a skidding offset and compare the left values --}}
@@ -109,8 +124,8 @@ module('Integration | Modifier | velcro', function (hooks) {
         </div>
       `);
 
-      let velcro1 = find('#velcro1');
-      let velcro2 = find('#velcro2');
+      let velcro1 = findElement('#velcro1');
+      let velcro2 = findElement('#velcro2');
 
       assert.strictEqual(
         velcro1.getBoundingClientRect().left + offsetSkidding,

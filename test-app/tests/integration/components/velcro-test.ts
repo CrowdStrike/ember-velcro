@@ -1,9 +1,9 @@
-import { find, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 
-import { resetTestingContainerDimensions } from '../velcro-test-helpers';
+import { findElement, resetTestingContainerDimensions, styleFor } from '../velcro-test-helpers';
 
 module('Integration | Component | velcro', function (hooks) {
   setupRenderingTest(hooks);
@@ -35,7 +35,7 @@ module('Integration | Component | velcro', function (hooks) {
       left: '0px',
     });
     assert.ok(
-      find('#loop').style.transform.includes('translate3d'),
+      styleFor('#loop').transform.includes('translate3d'),
       'floating element is positioned with translate3d'
     );
   });
@@ -126,6 +126,7 @@ module('Integration | Component | velcro', function (hooks) {
   module('@offsetOptions', function () {
     test('can pass in distance', async function (assert) {
       let offsetDistance = 10;
+
       this.set('offsetDistance', offsetDistance);
 
       await render(hbs`
@@ -143,8 +144,8 @@ module('Integration | Component | velcro', function (hooks) {
         </div>
       `);
 
-      let velcro1 = find('#velcro1');
-      let velcro2 = find('#velcro2');
+      let velcro1 = findElement('#velcro1');
+      let velcro2 = findElement('#velcro2');
 
       assert.strictEqual(
         velcro1.getBoundingClientRect().top + offsetDistance,
@@ -154,6 +155,7 @@ module('Integration | Component | velcro', function (hooks) {
 
     test('can pass in skidding', async function (assert) {
       let offsetSkidding = 10;
+
       this.set('offsetSkidding', { crossAxis: offsetSkidding });
 
       await render(hbs`
@@ -168,8 +170,8 @@ module('Integration | Component | velcro', function (hooks) {
         </Velcro>
       `);
 
-      let velcro1 = find('#velcro1');
-      let velcro2 = find('#velcro2');
+      let velcro1 = findElement('#velcro1');
+      let velcro2 = findElement('#velcro2');
 
       assert.strictEqual(
         velcro1.getBoundingClientRect().left + offsetSkidding,
