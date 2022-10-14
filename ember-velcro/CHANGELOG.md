@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/CrowdStrike/ember-velcro/compare/v1.0.1...v1.1.0) (2022-10-14)
+
+
+### Bug Fixes
+
+* **ts, glint:** address the majority of the glint issues ([9d2a494](https://github.com/CrowdStrike/ember-velcro/commit/9d2a49445787e5aa3e6ad4f405c4e78f11fd32ce))
+* **ts, glint:** remaining glint errors are resolved ([ef24cfd](https://github.com/CrowdStrike/ember-velcro/commit/ef24cfd5132b9f231502a6e1639c0f2659653f79))
+
+
+### Features
+
+* add types to addon and add glint registry augmentation for loose mode ([ad33ab9](https://github.com/CrowdStrike/ember-velcro/commit/ad33ab9b4ac799c12cc83a4d65c1c6c69c704164))
+
 ## [1.0.1](https://github.com/camskene/ember-velcro/compare/v1.0.0...v1.0.1) (2022-10-02)
 
 
