@@ -109,7 +109,7 @@ importers:
       '@embroider/core': ^1.9.0
       '@embroider/test-setup': ^1.8.3
       '@embroider/webpack': ^1.9.0
-      '@floating-ui/dom': ^1.0.2
+      '@floating-ui/dom': ^1.0.3
       '@glimmer/component': ^1.1.2
       '@glimmer/tracking': ^1.1.2
       '@glint/core': ^0.9.5
@@ -187,7 +187,7 @@ importers:
       '@embroider/core': 1.9.0
       '@embroider/test-setup': 1.8.3
       '@embroider/webpack': 1.9.0_4mpovkaptyark33dbwnkp36cwi
-      '@floating-ui/dom': 1.0.2
+      '@floating-ui/dom': 1.0.3
       '@glimmer/component': 1.1.2_@babel+core@7.19.6
       '@glimmer/tracking': 1.1.2
       '@glint/core': 0.9.5_typescript@4.7.4
@@ -2006,6 +2006,13 @@ packages:
     resolution: {integrity: sha512-5X9WSvZ8/fjy3gDu8yx9HAA4KG1lazUN2P4/VnaXLxTO9Dz53HI1oYoh1OlhqFNlHgGDiwFX5WhFCc2ljbW3yA==}
     dependencies:
       '@floating-ui/core': 1.0.1
+    dev: false
+
+  /@floating-ui/dom/1.0.3:
+    resolution: {integrity: sha512-6H1kwjkOZKabApNtXRiYHvMmYJToJ1DV7rQ3xc/WJpOABhQIOJJOdz2AOejj8X+gcybaFmBpisVTZxBZAM3V0w==}
+    dependencies:
+      '@floating-ui/core': 1.0.1
+    dev: true
 
   /@glimmer/component/1.1.2_@babel+core@7.19.3:
     resolution: {integrity: sha512-XyAsEEa4kWOPy+gIdMjJ8XlzA3qrGH55ZDv6nA16ibalCR17k74BI0CztxuRds+Rm6CtbUVgheCVlcCULuqD7A==}
