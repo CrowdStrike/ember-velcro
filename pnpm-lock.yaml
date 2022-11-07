@@ -112,7 +112,7 @@ importers:
       '@floating-ui/dom': ^1.0.4
       '@glimmer/component': ^1.1.2
       '@glimmer/tracking': ^1.1.2
-      '@glint/core': ^0.9.5
+      '@glint/core': ^0.9.7
       '@glint/environment-ember-loose': ^0.9.5
       '@glint/environment-ember-template-imports': ^0.9.5
       '@glint/template': ^0.9.5
@@ -190,7 +190,7 @@ importers:
       '@floating-ui/dom': 1.0.4
       '@glimmer/component': 1.1.2_@babel+core@7.19.6
       '@glimmer/tracking': 1.1.2
-      '@glint/core': 0.9.5_typescript@4.7.4
+      '@glint/core': 0.9.7_typescript@4.7.4
       '@glint/environment-ember-loose': 0.9.5_t5ycb63yys2yccfcq5mlxlwezm
       '@glint/environment-ember-template-imports': 0.9.5_jd7jb23ytpoefgzx6pbm5wrwzy
       '@glint/template': 0.9.5_@glimmer+component@1.1.2
@@ -2246,14 +2246,25 @@ packages:
       - supports-color
     dev: true
 
-  /@glint/core/0.9.5_typescript@4.7.4:
-    resolution: {integrity: sha512-U7Fgkc2wtEXxmL6o6SgxlhUB9daFAGko7of2GisvkqKYxfPw3ximFu12ZK9aEaWEpn23p2Wrc5AAgvW1zBxUfA==}
+  /@glint/config/0.9.7:
+    resolution: {integrity: sha512-XkWIZ3fuOlcofUJUaJmRS57mVVNi+Af2HtrZkBXEOCh4+BNz2wclxv2WKvkhmtvLhEUOhHb5eU3gwI58SuwgXQ==}
+    dependencies:
+      escape-string-regexp: 4.0.0
+      minimatch: 3.1.2
+      resolve: 1.22.1
+      silent-error: 1.1.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@glint/core/0.9.7_typescript@4.7.4:
+    resolution: {integrity: sha512-1YLHNRnuYI1dDUKWq/ue4JqiBt6TVR8e7VQJWy37CKB0tiBhWw/FPvr7/S7XbUxCt6KHO0Kl0x/eqLunu3WiQw==}
     hasBin: true
     peerDependencies:
       typescript: ^4.7.0
     dependencies:
-      '@glint/config': 0.9.5
-      '@glint/transform': 0.9.5
+      '@glint/config': 0.9.7
+      '@glint/transform': 0.9.7
       resolve: 1.22.1
       typescript: 4.7.4
       uuid: 8.3.2
@@ -2327,11 +2338,11 @@ packages:
       '@glimmer/component': 1.1.2_@babel+core@7.19.3
     dev: true
 
-  /@glint/transform/0.9.5:
-    resolution: {integrity: sha512-AHtXqQE16zV6VDDcC0ntYptitRVKe3hZveUqsKGGli+uOLIc0Ni/AhahaWgig/GwNXzGZy0qj3GU+hKvXSU8ng==}
+  /@glint/transform/0.9.7:
+    resolution: {integrity: sha512-vd0th+Zo4cirYepASpC0fE0ZCqAcI9Y6qHYE0xi4+MY05bFRxBr7Q9ggDoWk+slynTyUrVgzCCeazAYOlZsYcg==}
     dependencies:
       '@glimmer/syntax': 0.84.2
-      '@glint/config': 0.9.5
+      '@glint/config': 0.9.7
     transitivePeerDependencies:
       - supports-color
     dev: true
