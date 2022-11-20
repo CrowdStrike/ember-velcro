@@ -109,7 +109,7 @@ importers:
       '@embroider/core': ^1.9.0
       '@embroider/test-setup': ^1.8.3
       '@embroider/webpack': ^1.9.0
-      '@floating-ui/dom': ^1.0.4
+      '@floating-ui/dom': ^1.0.6
       '@glimmer/component': ^1.1.2
       '@glimmer/tracking': ^1.1.2
       '@glint/core': ^0.9.7
@@ -187,7 +187,7 @@ importers:
       '@embroider/core': 1.9.0
       '@embroider/test-setup': 1.8.3
       '@embroider/webpack': 1.9.0_4mpovkaptyark33dbwnkp36cwi
-      '@floating-ui/dom': 1.0.4
+      '@floating-ui/dom': 1.0.6
       '@glimmer/component': 1.1.2_@babel+core@7.19.6
       '@glimmer/tracking': 1.1.2
       '@glint/core': 0.9.7_typescript@4.7.4
@@ -2001,6 +2001,11 @@ packages:
 
   /@floating-ui/core/1.0.1:
     resolution: {integrity: sha512-bO37brCPfteXQfFY0DyNDGB3+IMe4j150KFQcgJ5aBP295p9nBGeHEs/p0czrRbtlHq4Px/yoPXO/+dOCcF4uA==}
+    dev: false
+
+  /@floating-ui/core/1.0.2:
+    resolution: {integrity: sha512-Skfy0YS3NJ5nV9us0uuPN0HDk1Q4edljaOhRBJGDWs9EBa7ZVMYBHRFlhLvvmwEoaIM9BlH6QJFn9/uZg0bACg==}
+    dev: true
 
   /@floating-ui/dom/1.0.2:
     resolution: {integrity: sha512-5X9WSvZ8/fjy3gDu8yx9HAA4KG1lazUN2P4/VnaXLxTO9Dz53HI1oYoh1OlhqFNlHgGDiwFX5WhFCc2ljbW3yA==}
@@ -2008,10 +2013,10 @@ packages:
       '@floating-ui/core': 1.0.1
     dev: false
 
-  /@floating-ui/dom/1.0.4:
-    resolution: {integrity: sha512-maYJRv+sAXTy4K9mzdv0JPyNW5YPVHrqtY90tEdI6XNpuLOP26Ci2pfwPsKBA/Wh4Z3FX5sUrtUFTdMYj9v+ug==}
+  /@floating-ui/dom/1.0.6:
+    resolution: {integrity: sha512-kt/tg1oip9OAH1xjCTcx1OpcUpu9rjDw3GKJ/rEhUqhO7QyJWfrHU0DpLTNsH67+JyFL5Kv9X1utsXwKFVtyEQ==}
     dependencies:
-      '@floating-ui/core': 1.0.1
+      '@floating-ui/core': 1.0.2
     dev: true
 
   /@glimmer/component/1.1.2_@babel+core@7.19.3:
