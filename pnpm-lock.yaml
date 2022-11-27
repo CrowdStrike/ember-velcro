@@ -109,7 +109,7 @@ importers:
       '@embroider/core': ^1.9.0
       '@embroider/test-setup': ^1.8.3
       '@embroider/webpack': ^1.9.0
-      '@floating-ui/dom': ^1.0.6
+      '@floating-ui/dom': ^1.0.7
       '@glimmer/component': ^1.1.2
       '@glimmer/tracking': ^1.1.2
       '@glint/core': ^0.9.7
@@ -187,7 +187,7 @@ importers:
       '@embroider/core': 1.9.0
       '@embroider/test-setup': 1.8.3
       '@embroider/webpack': 1.9.0_4mpovkaptyark33dbwnkp36cwi
-      '@floating-ui/dom': 1.0.6
+      '@floating-ui/dom': 1.0.7
       '@glimmer/component': 1.1.2_@babel+core@7.19.6
       '@glimmer/tracking': 1.1.2
       '@glint/core': 0.9.7_typescript@4.7.4
@@ -2013,8 +2013,8 @@ packages:
       '@floating-ui/core': 1.0.1
     dev: false
 
-  /@floating-ui/dom/1.0.6:
-    resolution: {integrity: sha512-kt/tg1oip9OAH1xjCTcx1OpcUpu9rjDw3GKJ/rEhUqhO7QyJWfrHU0DpLTNsH67+JyFL5Kv9X1utsXwKFVtyEQ==}
+  /@floating-ui/dom/1.0.7:
+    resolution: {integrity: sha512-6RsqvCYe0AYWtsGvuWqCm7mZytnXAZCjWtsWu1Kg8dI3INvj/DbKlDsZO+mKSaQdPT12uxIW9W2dAWJkPx4Y5g==}
     dependencies:
       '@floating-ui/core': 1.0.2
     dev: true
