@@ -117,7 +117,7 @@ importers:
       '@glint/environment-ember-template-imports': ^0.9.5
       '@glint/template': ^0.9.5
       '@nullvoxpopuli/eslint-configs': ^2.2.58
-      '@tsconfig/ember': ^1.0.1
+      '@tsconfig/ember': ^1.1.0
       '@types/ember': ^4.0.1
       '@types/ember-qunit': ^5.0.2
       '@types/ember-resolver': ^5.0.11
@@ -195,7 +195,7 @@ importers:
       '@glint/environment-ember-template-imports': 0.9.5_jd7jb23ytpoefgzx6pbm5wrwzy
       '@glint/template': 0.9.5_@glimmer+component@1.1.2
       '@nullvoxpopuli/eslint-configs': 2.2.60_typescript@4.7.4
-      '@tsconfig/ember': 1.0.1
+      '@tsconfig/ember': 1.1.0
       '@types/ember': 4.0.1_@babel+core@7.20.7
       '@types/ember-qunit': 5.0.2_@babel+core@7.20.7
       '@types/ember-resolver': 5.0.11_@babel+core@7.20.7
@@ -2893,8 +2893,8 @@ packages:
     engines: {node: '>= 10'}
     dev: true
 
-  /@tsconfig/ember/1.0.1:
-    resolution: {integrity: sha512-aPzLw5BfQxsFPrh5fNDOK4SbSkp2q5fMlrKVeniVjMz1lAcyOh2eH5THkKKcBi1YN1/fbMdAWN/dKGW6lg2+8g==}
+  /@tsconfig/ember/1.1.0:
+    resolution: {integrity: sha512-VzIrPO7ZpnIEmU+dJe3ubEPhxUIyavwIh2vxg8rXrwSnB99hdVcq0ZFPQ4KRP0LrSNzaPI1QA2sATIPwnBYPQg==}
     dev: true
 
   /@types/acorn/4.0.6:
