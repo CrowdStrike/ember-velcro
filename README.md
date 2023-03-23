@@ -101,11 +101,6 @@ pnpm install ember-velcro
 ember install ember-velcro
 ```
 
-Contributing
-------------------------------------------------------------------------------
-
-Ember Velcro is currently written primarily for my own fun and education.
-
 License
 ------------------------------------------------------------------------------
 
