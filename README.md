@@ -94,7 +94,7 @@ Installation
 ```
 npm install ember-velcro
 # or
-yarn install ember-velcro
+yarn add ember-velcro
 # or
 pnpm install ember-velcro
 # or
