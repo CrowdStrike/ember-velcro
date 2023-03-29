@@ -48,7 +48,7 @@
     "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^0.9.7",
     "@glint/environment-ember-loose": "^0.9.7",
-    "@glint/environment-ember-template-imports": "^0.9.5",
+    "@glint/environment-ember-template-imports": "^0.9.7",
     "@glint/template": "^0.9.5",
     "@nullvoxpopuli/eslint-configs": "^2.2.58",
     "@tsconfig/ember": "^1.1.0",
