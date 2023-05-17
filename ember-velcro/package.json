@@ -52,8 +52,8 @@
     "prepack": "rollup --config ./rollup.config.js"
   },
   "peerDependencies": {
-    "@glint/environment-ember-loose": "^0.9.4",
-    "@glint/template": "^0.9.5"
+    "@glint/environment-ember-loose": "^1.0.2",
+    "@glint/template": "^1.0.2"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0",
@@ -70,8 +70,8 @@
     "@embroider/addon-dev": "^2.0.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
-    "@glint/environment-ember-loose": "^0.9.5",
-    "@glint/template": "^0.9.5",
+    "@glint/environment-ember-loose": "^1.0.2",
+    "@glint/template": "^1.0.2",
     "@nullvoxpopuli/eslint-configs": "^2.2.58",
     "@rollup/plugin-babel": "^5.3.1",
     "@semantic-release/changelog": "^6.0.0",
