@@ -18,12 +18,6 @@
   "pnpm": {
     "overrides": {
       "@types/eslint": "^7.29.0"
-    },
-    "peerDependencyRules": {
-      "allowAny": [
-        "ember-source",
-        "typescript"
-      ]
     }
   }
 }
