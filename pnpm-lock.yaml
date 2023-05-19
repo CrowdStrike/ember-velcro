@@ -104,6 +104,7 @@ importers:
     specifiers:
       '@babel/core': ^7.21.0
       '@ember/optional-features': ^2.0.0
+      '@ember/string': ^3.0.1
       '@ember/test-helpers': ^2.9.3
       '@embroider/compat': ^1.9.0
       '@embroider/core': ^1.9.0
@@ -182,6 +183,7 @@ importers:
     devDependencies:
       '@babel/core': 7.21.0
       '@ember/optional-features': 2.0.0
+      '@ember/string': 3.1.1
       '@ember/test-helpers': 2.9.3_ltnsfx6pqyljde4nsdy7fdwhza
       '@embroider/compat': 1.9.0_@embroider+core@1.9.0
       '@embroider/core': 1.9.0
@@ -1640,6 +1642,15 @@ packages:
       inquirer: 7.3.3
       mkdirp: 1.0.4
       silent-error: 1.1.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@ember/string/3.1.1:
+    resolution: {integrity: sha512-UbXJ+k3QOrYN4SRPHgXCqYIJ+yWWUg1+vr0H4DhdQPTy8LJfyqwZ2tc5uqpSSnEXE+/1KopHBE5J8GDagAg5cg==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      ember-cli-babel: 7.26.11
     transitivePeerDependencies:
       - supports-color
     dev: true
