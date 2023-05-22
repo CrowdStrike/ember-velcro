@@ -35,6 +35,8 @@ module('Integration | Modifier | velcro', function (hooks) {
     test('has default value', async function (assert) {
       await render(hbs`
         <div id="velcro-reference">Velcro reference</div>
+        {{!-- Having an issue referencing a typed 'this' in the modifier --}}
+        {{! @glint-ignore }}
         <div id="velcro" {{velcro "#velcro-reference" middleware=(array this.addDataAttributes)}}>Velcro</div>
       `);
 
@@ -44,6 +46,8 @@ module('Integration | Modifier | velcro', function (hooks) {
     test('has named argument value', async function (assert) {
       await render(hbs`
         <div id="velcro-reference">Velcro reference</div>
+        {{!-- Having an issue referencing a typed 'this' in the modifier --}}
+        {{! @glint-ignore }}
         <div id="velcro" {{velcro "#velcro-reference" placement="bottom-start" middleware=(array this.addDataAttributes)}}>Velcro</div>
       `);
 
@@ -61,6 +65,8 @@ module('Integration | Modifier | velcro', function (hooks) {
     test('has default value', async function (assert) {
       await render(hbs`
         <div id="velcro-reference">Velcro reference</div>
+        {{!-- Having an issue referencing a typed 'this' in the modifier --}}
+        {{! @glint-ignore }}
         <div id="velcro" {{velcro "#velcro-reference" middleware=(array this.addDataAttributes)}}>Velcro</div>
       `);
 
@@ -70,6 +76,8 @@ module('Integration | Modifier | velcro', function (hooks) {
     test('has named argument value', async function (assert) {
       await render(hbs`
         <div id="velcro-reference">Velcro reference</div>
+        {{!-- Having an issue referencing a typed 'this' in the modifier --}}
+        {{! @glint-ignore }}
         <div id="velcro" {{velcro "#velcro-reference" strategy="absolute" middleware=(array this.addDataAttributes)}}>Velcro</div>
       `);
 
@@ -93,6 +101,8 @@ module('Integration | Modifier | velcro', function (hooks) {
           </div>
           <div>
             <div>velcroReference</div>
+            {{!-- Having an issue referencing a typed 'this' in the modifier --}}
+            {{! @glint-ignore }}
             <div id="velcro2" {{velcro "#velcro-reference" offsetOptions=this.offsetDistance placement="bottom-start"}}>Velcro</div>
           </div>
         </div>
@@ -120,6 +130,8 @@ module('Integration | Modifier | velcro', function (hooks) {
         </div>
         <div>
           <div id="velcro-reference">velcroReference</div>
+          {{!-- Having an issue referencing a typed 'this' in the modifier --}}
+          {{! @glint-ignore }}
           <div id="velcro2" {{velcro "#velcro-reference" offsetOptions=this.offsetSkidding}}>Velcro</div>
         </div>
       `);

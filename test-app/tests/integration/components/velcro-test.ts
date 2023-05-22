@@ -137,6 +137,8 @@ module('Integration | Component | velcro', function (hooks) {
             <div {{velcro.hook}}>velcroReference</div>
             <div id="velcro1" {{velcro.loop}}>Velcro</div>
           </Velcro>
+          {{!-- Having an issue referencing a typed 'this' in the modifier --}}
+          {{! @glint-ignore }}
           <Velcro @offsetOptions={{this.offsetDistance}} @placement="bottom-start" as |velcro|>
             <div {{velcro.hook}}>velcroReference</div>
             <div id="velcro2" {{velcro.loop}}>Velcro</div>
@@ -164,6 +166,8 @@ module('Integration | Component | velcro', function (hooks) {
           <div {{velcro.hook}}>velcroReference</div>
           <div id="velcro1" {{velcro.loop}}>Velcro</div>
         </Velcro>
+        {{!-- Having an issue referencing a typed 'this' in the modifier --}}
+        {{! @glint-ignore }}
         <Velcro @offsetOptions={{this.offsetSkidding}} as |velcro|>
           <div {{velcro.hook}}>velcroReference</div>
           <div id="velcro2" {{velcro.loop}}>Velcro</div>
