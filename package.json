@@ -10,10 +10,15 @@
     "test": "pnpm --filter test-app test",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "ci:update": "npx ember-ci-update"
+    "ci:update": "npx ember-ci-update",
+    "release": "changeset publish"
   },
   "dependencies": {
     "concurrently": "^7.4.0"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.0"
   },
   "pnpm": {
     "overrides": {
