@@ -51,10 +51,6 @@
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
     "prepack": "rollup --config ./rollup.config.js"
   },
-  "peerDependencies": {
-    "@glint/environment-ember-loose": "^1.0.2",
-    "@glint/template": "^1.0.2"
-  },
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0",
     "@floating-ui/dom": "^1.0.1",
