@@ -122,7 +122,7 @@ importers:
       '@types/ember': ^4.0.3
       '@types/ember__application': ^4.0.5
       '@types/ember__array': ^4.0.3
-      '@types/ember__component': ^4.0.12
+      '@types/ember__component': ^4.0.13
       '@types/ember__controller': ^4.0.4
       '@types/ember__debug': ^4.0.3
       '@types/ember__engine': ^4.0.4
@@ -137,7 +137,7 @@ importers:
       '@types/ember__template': ^4.0.1
       '@types/ember__test': ^4.0.1
       '@types/ember__utils': ^4.0.2
-      '@types/qunit': ^2.19.4
+      '@types/qunit': ^2.19.5
       '@types/rsvp': ^4.0.4
       babel-eslint: ^10.1.0
       broccoli-asset-rev: ^3.0.0
@@ -191,15 +191,15 @@ importers:
       '@glimmer/component': 1.1.2_@babel+core@7.21.8
       '@glimmer/tracking': 1.1.2
       '@glint/core': 1.0.2_typescript@4.9.5
-      '@glint/environment-ember-loose': 1.0.2_ntytpl7scjll6czhnguvnu5yla
-      '@glint/environment-ember-template-imports': 1.0.2_m2nozs4eovcsts257ysi7tpj5u
+      '@glint/environment-ember-loose': 1.0.2_iv4q5w5k7p3d5c4b6d62jbexdq
+      '@glint/environment-ember-template-imports': 1.0.2_qj3eqqvkxsvtllu4ia6supxfue
       '@glint/template': 1.0.2
       '@nullvoxpopuli/eslint-configs': 2.2.60_typescript@4.9.5
       '@tsconfig/ember': 1.1.0
       '@types/ember': 4.0.3_@babel+core@7.21.8
       '@types/ember__application': 4.0.5_@babel+core@7.21.8
       '@types/ember__array': 4.0.3_@babel+core@7.21.8
-      '@types/ember__component': 4.0.12_@babel+core@7.21.8
+      '@types/ember__component': 4.0.13_@babel+core@7.21.8
       '@types/ember__controller': 4.0.4_@babel+core@7.21.8
       '@types/ember__debug': 4.0.3_@babel+core@7.21.8
       '@types/ember__engine': 4.0.4_@babel+core@7.21.8
@@ -214,7 +214,7 @@ importers:
       '@types/ember__template': 4.0.1
       '@types/ember__test': 4.0.1_@babel+core@7.21.8
       '@types/ember__utils': 4.0.2_@babel+core@7.21.8
-      '@types/qunit': 2.19.4
+      '@types/qunit': 2.19.5
       '@types/rsvp': 4.0.4
       babel-eslint: 10.1.0_eslint@7.32.0
       broccoli-asset-rev: 3.0.0
@@ -2446,6 +2446,44 @@ packages:
       - supports-color
     dev: true
 
+  /@glint/environment-ember-loose/1.0.2_iv4q5w5k7p3d5c4b6d62jbexdq:
+    resolution: {integrity: sha512-tVLYzAx6c/4vcSaijiAubwR27/+K2tujuozArxeNud58MTwncGxhUkCHSM9xl+wn4VJjsjkzI6+nmzjEdkszSg==}
+    peerDependencies:
+      '@glimmer/component': ^1.1.2
+      '@glint/template': ^1.0.2
+      '@types/ember__array': ^4.0.2
+      '@types/ember__component': ^4.0.10
+      '@types/ember__controller': ^4.0.2
+      '@types/ember__object': ^4.0.4
+      '@types/ember__routing': ^4.0.11
+      ember-cli-htmlbars: ^6.0.1
+      ember-modifier: ^3.2.7 || ^4.0.0
+    peerDependenciesMeta:
+      '@types/ember__array':
+        optional: true
+      '@types/ember__component':
+        optional: true
+      '@types/ember__controller':
+        optional: true
+      '@types/ember__object':
+        optional: true
+      '@types/ember__routing':
+        optional: true
+      ember-cli-htmlbars:
+        optional: true
+      ember-modifier:
+        optional: true
+    dependencies:
+      '@glimmer/component': 1.1.2_@babel+core@7.21.8
+      '@glint/template': 1.0.2
+      '@types/ember__array': 4.0.3_@babel+core@7.21.8
+      '@types/ember__component': 4.0.13_@babel+core@7.21.8
+      '@types/ember__controller': 4.0.4_@babel+core@7.21.8
+      '@types/ember__object': 4.0.5_@babel+core@7.21.8
+      '@types/ember__routing': 4.0.12_@babel+core@7.21.8
+      ember-cli-htmlbars: 6.2.0
+    dev: true
+
   /@glint/environment-ember-loose/1.0.2_n4lkxywdcpckqr73okpigk6s4i:
     resolution: {integrity: sha512-tVLYzAx6c/4vcSaijiAubwR27/+K2tujuozArxeNud58MTwncGxhUkCHSM9xl+wn4VJjsjkzI6+nmzjEdkszSg==}
     peerDependencies:
@@ -2480,45 +2518,7 @@ packages:
       ember-modifier: 3.2.7_@babel+core@7.21.0
     dev: true
 
-  /@glint/environment-ember-loose/1.0.2_ntytpl7scjll6czhnguvnu5yla:
-    resolution: {integrity: sha512-tVLYzAx6c/4vcSaijiAubwR27/+K2tujuozArxeNud58MTwncGxhUkCHSM9xl+wn4VJjsjkzI6+nmzjEdkszSg==}
-    peerDependencies:
-      '@glimmer/component': ^1.1.2
-      '@glint/template': ^1.0.2
-      '@types/ember__array': ^4.0.2
-      '@types/ember__component': ^4.0.10
-      '@types/ember__controller': ^4.0.2
-      '@types/ember__object': ^4.0.4
-      '@types/ember__routing': ^4.0.11
-      ember-cli-htmlbars: ^6.0.1
-      ember-modifier: ^3.2.7 || ^4.0.0
-    peerDependenciesMeta:
-      '@types/ember__array':
-        optional: true
-      '@types/ember__component':
-        optional: true
-      '@types/ember__controller':
-        optional: true
-      '@types/ember__object':
-        optional: true
-      '@types/ember__routing':
-        optional: true
-      ember-cli-htmlbars:
-        optional: true
-      ember-modifier:
-        optional: true
-    dependencies:
-      '@glimmer/component': 1.1.2_@babel+core@7.21.8
-      '@glint/template': 1.0.2
-      '@types/ember__array': 4.0.3_@babel+core@7.21.8
-      '@types/ember__component': 4.0.12_@babel+core@7.21.8
-      '@types/ember__controller': 4.0.4_@babel+core@7.21.8
-      '@types/ember__object': 4.0.5_@babel+core@7.21.8
-      '@types/ember__routing': 4.0.12_@babel+core@7.21.8
-      ember-cli-htmlbars: 6.2.0
-    dev: true
-
-  /@glint/environment-ember-template-imports/1.0.2_m2nozs4eovcsts257ysi7tpj5u:
+  /@glint/environment-ember-template-imports/1.0.2_qj3eqqvkxsvtllu4ia6supxfue:
     resolution: {integrity: sha512-PAH7obVGXPFU7gLb04JVlqiNtz/j7Q29BBTAyhS7EVy99Hc6CPe+nV6+xhUPKu/S5GOVn3MWehVt/6gXPJ+cnA==}
     peerDependencies:
       '@glint/environment-ember-loose': ^1.0.2
@@ -2538,9 +2538,9 @@ packages:
       '@types/ember__routing':
         optional: true
     dependencies:
-      '@glint/environment-ember-loose': 1.0.2_ntytpl7scjll6czhnguvnu5yla
+      '@glint/environment-ember-loose': 1.0.2_iv4q5w5k7p3d5c4b6d62jbexdq
       '@glint/template': 1.0.2
-      '@types/ember__component': 4.0.12_@babel+core@7.21.8
+      '@types/ember__component': 4.0.13_@babel+core@7.21.8
       '@types/ember__routing': 4.0.12_@babel+core@7.21.8
       ember-template-imports: 3.1.2_ember-cli-htmlbars@6.2.0
     dev: true
@@ -3064,7 +3064,7 @@ packages:
     dependencies:
       '@types/ember__application': 4.0.5_@babel+core@7.21.0
       '@types/ember__array': 4.0.3_@babel+core@7.21.0
-      '@types/ember__component': 4.0.12_@babel+core@7.21.0
+      '@types/ember__component': 4.0.13_@babel+core@7.21.0
       '@types/ember__controller': 4.0.4
       '@types/ember__debug': 4.0.3
       '@types/ember__engine': 4.0.4
@@ -3090,7 +3090,7 @@ packages:
     dependencies:
       '@types/ember__application': 4.0.5_@babel+core@7.21.8
       '@types/ember__array': 4.0.3_@babel+core@7.21.8
-      '@types/ember__component': 4.0.12_@babel+core@7.21.8
+      '@types/ember__component': 4.0.13_@babel+core@7.21.8
       '@types/ember__controller': 4.0.4_@babel+core@7.21.8
       '@types/ember__debug': 4.0.3_@babel+core@7.21.8
       '@types/ember__engine': 4.0.4_@babel+core@7.21.8
@@ -3159,8 +3159,8 @@ packages:
       - supports-color
     dev: true
 
-  /@types/ember__component/4.0.12_@babel+core@7.21.0:
-    resolution: {integrity: sha512-qHjCGo1p9I4VJR3qfil7h0jJWTy52uNJw87MNwNEi1SYk+EaVJaqyyyoZHJmZGdn8hw3JjXvyFt/zeFZpbK/6A==}
+  /@types/ember__component/4.0.13_@babel+core@7.21.0:
+    resolution: {integrity: sha512-mxPme8PexMrv/GPUOE9uPzxjVhHhrznGG4HRUsZNvrHwBbvVwJ/ClgDxz1NZeaYrKhAstQ6QjorssoEXaoer+A==}
     dependencies:
       '@types/ember': 4.0.3_@babel+core@7.21.0
       '@types/ember__object': 4.0.5
@@ -3169,8 +3169,8 @@ packages:
       - supports-color
     dev: true
 
-  /@types/ember__component/4.0.12_@babel+core@7.21.8:
-    resolution: {integrity: sha512-qHjCGo1p9I4VJR3qfil7h0jJWTy52uNJw87MNwNEi1SYk+EaVJaqyyyoZHJmZGdn8hw3JjXvyFt/zeFZpbK/6A==}
+  /@types/ember__component/4.0.13_@babel+core@7.21.8:
+    resolution: {integrity: sha512-mxPme8PexMrv/GPUOE9uPzxjVhHhrznGG4HRUsZNvrHwBbvVwJ/ClgDxz1NZeaYrKhAstQ6QjorssoEXaoer+A==}
     dependencies:
       '@types/ember': 4.0.3_@babel+core@7.21.8
       '@types/ember__object': 4.0.5
@@ -3525,8 +3525,8 @@ packages:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
     dev: true
 
-  /@types/qunit/2.19.4:
-    resolution: {integrity: sha512-EocRiD2JRWrOaA0dnyyLX083DIo1p3OSBBiGODcHaMzOFhteXtvRRp0kKsiYYqynnBSMqnqRI92iE32axdoXZw==}
+  /@types/qunit/2.19.5:
+    resolution: {integrity: sha512-NvyN1m6nKlRpAXETsTdqzEfW6C+5xbIqrXxQbnm8PmfxM7Ixi73KPoHgXCLJZHw8fd9pvCm3gVeX3nBYRuZLYQ==}
     dev: true
 
   /@types/range-parser/1.2.4:
