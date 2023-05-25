@@ -157,7 +157,7 @@ importers:
       ember-resolver: ^9.0.1
       ember-source: ^4.12.0
       ember-source-channel-url: ^3.0.0
-      ember-template-imports: ^3.1.2
+      ember-template-imports: ^3.4.2
       ember-template-lint: ^4.10.1
       ember-try: ^2.0.0
       ember-velcro: link:../ember-velcro
@@ -192,7 +192,7 @@ importers:
       '@glimmer/tracking': 1.1.2
       '@glint/core': 1.0.2_typescript@4.9.5
       '@glint/environment-ember-loose': 1.0.2_iv4q5w5k7p3d5c4b6d62jbexdq
-      '@glint/environment-ember-template-imports': 1.0.2_qj3eqqvkxsvtllu4ia6supxfue
+      '@glint/environment-ember-template-imports': 1.0.2_t3qqpjqwom6ekdab2mwri7tyoa
       '@glint/template': 1.0.2
       '@nullvoxpopuli/eslint-configs': 2.2.60_typescript@4.9.5
       '@tsconfig/ember': 1.1.0
@@ -234,7 +234,7 @@ importers:
       ember-resolver: 9.0.1_ember-source@4.12.0
       ember-source: 4.12.0_ss36cdlgyql64jkovntz5kx2d4
       ember-source-channel-url: 3.0.0
-      ember-template-imports: 3.1.2_ember-cli-htmlbars@6.2.0
+      ember-template-imports: 3.4.2
       ember-template-lint: 4.15.0_ember-cli-htmlbars@6.2.0
       ember-try: 2.0.0
       ember-welcome-page: 6.2.0
@@ -2518,7 +2518,7 @@ packages:
       ember-modifier: 3.2.7_@babel+core@7.21.0
     dev: true
 
-  /@glint/environment-ember-template-imports/1.0.2_qj3eqqvkxsvtllu4ia6supxfue:
+  /@glint/environment-ember-template-imports/1.0.2_t3qqpjqwom6ekdab2mwri7tyoa:
     resolution: {integrity: sha512-PAH7obVGXPFU7gLb04JVlqiNtz/j7Q29BBTAyhS7EVy99Hc6CPe+nV6+xhUPKu/S5GOVn3MWehVt/6gXPJ+cnA==}
     peerDependencies:
       '@glint/environment-ember-loose': ^1.0.2
@@ -2542,7 +2542,7 @@ packages:
       '@glint/template': 1.0.2
       '@types/ember__component': 4.0.13_@babel+core@7.21.8
       '@types/ember__routing': 4.0.12_@babel+core@7.21.8
-      ember-template-imports: 3.1.2_ember-cli-htmlbars@6.2.0
+      ember-template-imports: 3.4.2
     dev: true
 
   /@glint/template/1.0.2:
@@ -7818,6 +7818,23 @@ packages:
       broccoli-stew: 3.0.0
       ember-cli-babel-plugin-helpers: 1.1.1
       ember-cli-htmlbars: 6.2.0
+      ember-cli-version-checker: 5.1.2
+      line-column: 1.0.2
+      magic-string: 0.25.9
+      parse-static-imports: 1.1.0
+      string.prototype.matchall: 4.0.7
+      validate-peer-dependencies: 1.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /ember-template-imports/3.4.2:
+    resolution: {integrity: sha512-OS8TUVG2kQYYwP3netunLVfeijPoOKIs1SvPQRTNOQX4Pu8xGGBEZmrv0U1YTnQn12Eg+p6w/0UdGbUnITjyzw==}
+    engines: {node: 12.* || >= 14}
+    dependencies:
+      babel-import-util: 0.2.0
+      broccoli-stew: 3.0.0
+      ember-cli-babel-plugin-helpers: 1.1.1
       ember-cli-version-checker: 5.1.2
       line-column: 1.0.2
       magic-string: 0.25.9
