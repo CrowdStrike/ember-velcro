@@ -1,3 +1,45 @@
+# [2.0.0](https://github.com/CrowdStrike/ember-velcro/compare/v1.1.0...v2.0.0) (2023-05-25)
+
+
+* breaking-change: Fix main branch typescript errors (#83) ([a732f56](https://github.com/CrowdStrike/ember-velcro/commit/a732f563e2893e9822bc3c03edfea7ecb5fd364f)), closes [#83](https://github.com/CrowdStrike/ember-velcro/issues/83)
+
+
+### BREAKING CHANGES
+
+* Removing types and updating TypeScript version to support Glint properly. The main branch build is currently red due to the Glint dependency updates.  This gets things back on track.  We are making a breaking change as updating underlying TypeScript changes is considered as such (https://github.com/CrowdStrike/ember-headless-table/pull/176).
+
+* chore: Upgrade glint dependencies
+
+* chore: Allow any ember-source + typescript
+
+* chore: Glint only supports TSv4.8+
+
+* chore: Upgrade ember-source + resolver
+
+Started getting type errors with resolver:
+
+"Module '"@ember/owner"' has no exported member 'Resolver'. Did you mean to use 'import Resolver from "@ember/owner"' instead?"
+
+ember-resolver now ships with their own types rather than the types namespace
+
+* chore: Remove commitlint
+
+* chore: Update babel/core + qunit deps
+
+* chore: Add @types/ember__owner dependency
+
+* chore: Add ember/string as a dependency for tests
+
+* chore: Ignore glint errors for now
+
+* chore: Convert tests to gts
+
+* fix: Remove unneeded peerDependencies
+
+* fix: Remove unneeded types/ember packages
+
+These libraries now ship with their own types, so we no longer need the ones coming from the types namespace anymore.
+
 # [1.1.0](https://github.com/CrowdStrike/ember-velcro/compare/v1.0.1...v1.1.0) (2022-10-14)
 
 
