@@ -21,23 +21,22 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./*": "./dist/*",
-    "./addon-main": "./addon-main.js"
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.js"
   },
   "typesVersions": {
     "*": {
-      "glint": [
-        "./glint.d.ts"
-      ],
       "*": [
-        "./dist/*"
+        "dist/*"
       ]
     }
   },
   "files": [
     "addon-main.js",
-    "dist",
-    "glint.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "rollup --config ./rollup.config.js",
