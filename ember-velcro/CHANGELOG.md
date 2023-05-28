@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/CrowdStrike/ember-velcro/compare/v2.0.0...v2.0.1) (2023-05-28)
+
+
+### Bug Fixes
+
+* Update README command and link ([#81](https://github.com/CrowdStrike/ember-velcro/issues/81)) ([3f896a9](https://github.com/CrowdStrike/ember-velcro/commit/3f896a9c3c41c1e2d5c63a8ad0e747e46150fd46))
+
 # [2.0.0](https://github.com/CrowdStrike/ember-velcro/compare/v1.1.0...v2.0.0) (2023-05-25)
 
 
