@@ -94,7 +94,7 @@ Installation
 ```
 npm install ember-velcro
 # or
-yarn install ember-velcro
+yarn add ember-velcro
 # or
 pnpm install ember-velcro
 # or
@@ -109,7 +109,7 @@ Similar projects include:
 * [ember-popperjs](https://github.com/NullVoxPopuli/ember-popperjs)
 * [ember-popper-modifier](https://github.com/adopted-ember-addons/ember-popper-modifier)
 
-The above projects both use [Popper](https://popper.js.org/). In contrast, Ember Velcro uses Floating UI. Floating UI is the successor to Popper - see their [migration guide)[https://floating-ui.com/docs/migration])) for a complete comparison.
+The above projects both use [Popper](https://popper.js.org/). In contrast, Ember Velcro uses Floating UI. Floating UI is the successor to Popper - see their [migration guide](https://floating-ui.com/docs/migration) for a complete comparison.
 
 License
 ------------------------------------------------------------------------------
