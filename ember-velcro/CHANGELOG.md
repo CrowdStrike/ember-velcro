@@ -1,5 +1,3 @@
-## [2.0.1](https://github.com/CrowdStrike/ember-velcro/compare/v2.0.0...v2.0.1) (2023-05-28)
-
 ## 2.1.0
 
 ### Minor Changes
@@ -7,9 +5,9 @@
 - [#85](https://github.com/CrowdStrike/ember-velcro/pull/85) [`f53b03f`](https://github.com/CrowdStrike/ember-velcro/commit/f53b03fa16b2e33a7fb4e02fcf2368587df678ae) Thanks [@ynotdraw](https://github.com/ynotdraw)! - A `template-registry` is now exported from `ember-velcro` to use with [Glint](https://typed-ember.gitbook.io/glint/). To use it in your apps and addons, add the following to your existing registry:
 
   ```ts
-  import type EmberVelcroRegistry from "ember-velcro/template-registry";
+  import type EmberVelcroRegistry from 'ember-velcro/template-registry';
 
-  declare module "@glint/environment-ember-loose/registry" {
+  declare module '@glint/environment-ember-loose/registry' {
     export default interface Registry extends EmberVelcroRegistry {
       // Other items here
     }
@@ -19,6 +17,8 @@
 ### Patch Changes
 
 - [#84](https://github.com/CrowdStrike/ember-velcro/pull/84) [`5b49970`](https://github.com/CrowdStrike/ember-velcro/commit/5b499701a013c62f2d3636d1e34506595beeb3f2) Thanks [@ynotdraw](https://github.com/ynotdraw)! - (internal): swap semantic-release for Changesets so that we can have more granular control over releases, and batch breaking changes together without massive PRs
+
+## [2.0.1](https://github.com/CrowdStrike/ember-velcro/compare/v2.0.0...v2.0.1) (2023-05-28)
 
 ### Bug Fixes
 
