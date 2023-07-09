@@ -71,7 +71,7 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@types/ember__debug": "^4.0.1",
     "@types/ember__destroyable": "^4.0.0",
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.11.0",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^7.4.0",
     "ember-cli-htmlbars": "^6.1.0",
