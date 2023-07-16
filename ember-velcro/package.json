@@ -68,7 +68,7 @@
     "@glint/environment-ember-loose": "^1.0.2",
     "@glint/template": "^1.0.2",
     "@nullvoxpopuli/eslint-configs": "^2.2.58",
-    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-babel": "^6.0.0",
     "@types/ember__debug": "^4.0.1",
     "@types/ember__destroyable": "^4.0.0",
     "@babel/eslint-parser": "^7.11.0",
