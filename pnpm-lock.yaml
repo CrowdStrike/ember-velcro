@@ -59,7 +59,7 @@ importers:
         version: 1.1.2
       '@glint/environment-ember-loose':
         specifier: ^1.0.2
-        version: 1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(ember-cli-htmlbars@6.1.1)(ember-modifier@3.2.7)
+        version: 1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(@types/ember__array@4.0.4)(@types/ember__component@4.0.14)(@types/ember__controller@4.0.5)(@types/ember__object@4.0.6)(@types/ember__routing@4.0.13)(ember-cli-htmlbars@6.2.0)(ember-modifier@3.2.7)
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
@@ -141,6 +141,9 @@ importers:
 
   test-app:
     dependencies:
+      ember-modifier:
+        specifier: ^3.2.7
+        version: 3.2.7(@babel/core@7.22.5)
       ember-velcro:
         specifier: link:../ember-velcro
         version: link:../ember-velcro
@@ -186,7 +189,7 @@ importers:
         version: 1.0.2(typescript@4.9.5)
       '@glint/environment-ember-loose':
         specifier: ^1.0.2
-        version: 1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(@types/ember__array@4.0.4)(@types/ember__component@4.0.14)(@types/ember__controller@4.0.5)(@types/ember__object@4.0.6)(@types/ember__routing@4.0.13)(ember-cli-htmlbars@6.2.0)
+        version: 1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(@types/ember__array@4.0.4)(@types/ember__component@4.0.14)(@types/ember__controller@4.0.5)(@types/ember__object@4.0.6)(@types/ember__routing@4.0.13)(ember-cli-htmlbars@6.2.0)(ember-modifier@3.2.7)
       '@glint/environment-ember-template-imports':
         specifier: ^1.0.2
         version: 1.0.2(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(@types/ember__component@4.0.14)(@types/ember__routing@4.0.13)(ember-template-imports@3.4.2)
@@ -2790,7 +2793,7 @@ packages:
       - supports-color
     dev: true
 
-  /@glint/environment-ember-loose@1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(@types/ember__array@4.0.4)(@types/ember__component@4.0.14)(@types/ember__controller@4.0.5)(@types/ember__object@4.0.6)(@types/ember__routing@4.0.13)(ember-cli-htmlbars@6.2.0):
+  /@glint/environment-ember-loose@1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(@types/ember__array@4.0.4)(@types/ember__component@4.0.14)(@types/ember__controller@4.0.5)(@types/ember__object@4.0.6)(@types/ember__routing@4.0.13)(ember-cli-htmlbars@6.2.0)(ember-modifier@3.2.7):
     resolution: {integrity: sha512-tVLYzAx6c/4vcSaijiAubwR27/+K2tujuozArxeNud58MTwncGxhUkCHSM9xl+wn4VJjsjkzI6+nmzjEdkszSg==}
     peerDependencies:
       '@glimmer/component': ^1.1.2
@@ -2826,40 +2829,7 @@ packages:
       '@types/ember__object': 4.0.6(@babel/core@7.22.5)
       '@types/ember__routing': 4.0.13(@babel/core@7.22.5)
       ember-cli-htmlbars: 6.2.0
-    dev: true
-
-  /@glint/environment-ember-loose@1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(ember-cli-htmlbars@6.1.1)(ember-modifier@3.2.7):
-    resolution: {integrity: sha512-tVLYzAx6c/4vcSaijiAubwR27/+K2tujuozArxeNud58MTwncGxhUkCHSM9xl+wn4VJjsjkzI6+nmzjEdkszSg==}
-    peerDependencies:
-      '@glimmer/component': ^1.1.2
-      '@glint/template': ^1.0.2
-      '@types/ember__array': ^4.0.2
-      '@types/ember__component': ^4.0.10
-      '@types/ember__controller': ^4.0.2
-      '@types/ember__object': ^4.0.4
-      '@types/ember__routing': ^4.0.11
-      ember-cli-htmlbars: ^6.0.1
-      ember-modifier: ^3.2.7 || ^4.0.0
-    peerDependenciesMeta:
-      '@types/ember__array':
-        optional: true
-      '@types/ember__component':
-        optional: true
-      '@types/ember__controller':
-        optional: true
-      '@types/ember__object':
-        optional: true
-      '@types/ember__routing':
-        optional: true
-      ember-cli-htmlbars:
-        optional: true
-      ember-modifier:
-        optional: true
-    dependencies:
-      '@glimmer/component': 1.1.2(@babel/core@7.21.0)
-      '@glint/template': 1.0.2
-      ember-cli-htmlbars: 6.1.1
-      ember-modifier: 3.2.7(@babel/core@7.21.0)
+      ember-modifier: 3.2.7(@babel/core@7.22.5)
     dev: true
 
   /@glint/environment-ember-template-imports@1.0.2(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(@types/ember__component@4.0.14)(@types/ember__routing@4.0.13)(ember-template-imports@3.4.2):
@@ -2882,7 +2852,7 @@ packages:
       '@types/ember__routing':
         optional: true
     dependencies:
-      '@glint/environment-ember-loose': 1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(@types/ember__array@4.0.4)(@types/ember__component@4.0.14)(@types/ember__controller@4.0.5)(@types/ember__object@4.0.6)(@types/ember__routing@4.0.13)(ember-cli-htmlbars@6.2.0)
+      '@glint/environment-ember-loose': 1.0.2(@glimmer/component@1.1.2)(@glint/template@1.0.2)(@types/ember__array@4.0.4)(@types/ember__component@4.0.14)(@types/ember__controller@4.0.5)(@types/ember__object@4.0.6)(@types/ember__routing@4.0.13)(ember-cli-htmlbars@6.2.0)(ember-modifier@3.2.7)
       '@glint/template': 1.0.2
       '@types/ember__component': 4.0.14(@babel/core@7.22.5)
       '@types/ember__routing': 4.0.13(@babel/core@7.22.5)
@@ -3199,10 +3169,10 @@ packages:
       '@types/ember__array': 4.0.4(@babel/core@7.21.0)
       '@types/ember__component': 4.0.14(@babel/core@7.21.0)
       '@types/ember__controller': 4.0.5(@babel/core@7.22.5)
-      '@types/ember__debug': 4.0.4(@babel/core@7.22.5)
+      '@types/ember__debug': 4.0.4(@babel/core@7.21.0)
       '@types/ember__engine': 4.0.5(@babel/core@7.22.5)
       '@types/ember__error': 4.0.3
-      '@types/ember__object': 4.0.6(@babel/core@7.22.5)
+      '@types/ember__object': 4.0.6(@babel/core@7.21.0)
       '@types/ember__polyfills': 4.0.2
       '@types/ember__routing': 4.0.13(@babel/core@7.21.0)
       '@types/ember__runloop': 4.0.3(@babel/core@7.21.0)
@@ -3250,7 +3220,7 @@ packages:
       '@glimmer/component': 1.1.2(@babel/core@7.21.0)
       '@types/ember': 4.0.4(@babel/core@7.21.0)
       '@types/ember__engine': 4.0.5(@babel/core@7.22.5)
-      '@types/ember__object': 4.0.6(@babel/core@7.22.5)
+      '@types/ember__object': 4.0.6(@babel/core@7.21.0)
       '@types/ember__owner': 4.0.4
       '@types/ember__routing': 4.0.13(@babel/core@7.21.0)
     transitivePeerDependencies:
@@ -3276,7 +3246,7 @@ packages:
     resolution: {integrity: sha512-nMg0+2ooumlfHJjwmI1tnVTBg8TfORhXT4OdzJzCjweFjBCA25L7K0W9J/NKzTUTryJsaDil6VMbY3dCXpyBvA==}
     dependencies:
       '@types/ember': 4.0.4(@babel/core@7.21.0)
-      '@types/ember__object': 4.0.6(@babel/core@7.22.5)
+      '@types/ember__object': 4.0.6(@babel/core@7.21.0)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -3296,7 +3266,7 @@ packages:
     resolution: {integrity: sha512-qqEJOCxxPJrfYpgs8+8Zjrc8uRzpbhALtsG6nf/LoB4DkXisSd+C6a3n04ACvGfDa+1uVA3SZ8sTqKPgx6nM9g==}
     dependencies:
       '@types/ember': 4.0.4(@babel/core@7.21.0)
-      '@types/ember__object': 4.0.6(@babel/core@7.22.5)
+      '@types/ember__object': 4.0.6(@babel/core@7.21.0)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -3425,7 +3395,7 @@ packages:
     dependencies:
       '@types/ember': 4.0.4(@babel/core@7.21.0)
       '@types/ember__controller': 4.0.5(@babel/core@7.22.5)
-      '@types/ember__object': 4.0.6(@babel/core@7.22.5)
+      '@types/ember__object': 4.0.6(@babel/core@7.21.0)
       '@types/ember__service': 4.0.3(@babel/core@7.22.5)
     transitivePeerDependencies:
       - '@babel/core'
@@ -3437,7 +3407,7 @@ packages:
     dependencies:
       '@types/ember': 4.0.4(@babel/core@7.22.5)
       '@types/ember__controller': 4.0.5(@babel/core@7.22.5)
-      '@types/ember__object': 4.0.6(@babel/core@7.22.5)
+      '@types/ember__object': 4.0.6(@babel/core@7.21.0)
       '@types/ember__service': 4.0.3(@babel/core@7.22.5)
     transitivePeerDependencies:
       - '@babel/core'
@@ -4770,7 +4740,6 @@ packages:
     dependencies:
       '@babel/core': 7.22.5(supports-color@8.1.1)
       semver: 5.7.1
-    dev: true
 
   /babel-plugin-debug-macros@0.3.4(@babel/core@7.21.0):
     resolution: {integrity: sha512-wfel/vb3pXfwIDZUrkoDrn5FHmlWI96PCJ3UCDv2a86poJ3EQrnArNW5KfHSVJ9IOgxHbo748cQt7sDU+0KCEw==}
@@ -7138,7 +7107,7 @@ packages:
       lodash: 4.17.21
       mini-css-extract-plugin: 2.6.1(webpack@5.74.0)
       parse5: 6.0.1
-      resolve: 1.22.1
+      resolve: 1.22.2
       resolve-package-path: 4.0.3
       semver: 7.3.8
       style-loader: 2.0.0(webpack@5.74.0)
@@ -7684,7 +7653,6 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
-    dev: true
 
   /ember-destroyable-polyfill@2.0.3(@babel/core@7.22.5):
     resolution: {integrity: sha512-TovtNqCumzyAiW0/OisSkkVK93xnVF4NRU6+FN0ubpfwEOpRrmM2RqDwXI6YAChCgSHON1cz0DfQStpA1Gjuuw==}
@@ -7759,6 +7727,19 @@ packages:
       - '@babel/core'
       - supports-color
     dev: true
+
+  /ember-modifier@3.2.7(@babel/core@7.22.5):
+    resolution: {integrity: sha512-ezcPQhH8jUfcJQbbHji4/ZG/h0yyj1jRDknfYue/ypQS8fM8LrGcCMo0rjDZLzL1Vd11InjNs3BD7BdxFlzGoA==}
+    engines: {node: 12.* || >= 14}
+    dependencies:
+      ember-cli-babel: 7.26.11
+      ember-cli-normalize-entity-name: 1.0.0
+      ember-cli-string-utils: 1.1.0
+      ember-cli-typescript: 5.1.1
+      ember-compatibility-helpers: 1.2.6(@babel/core@7.22.5)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
 
   /ember-page-title@7.0.0:
     resolution: {integrity: sha512-oq6+HYbeVD/BnxIO5AkP4gWlsatdgW2HFO10F8+XQiJZrwa7cC7Wm54JNGqQkavkDQTgNSiy1Fe2NILJ14MmAg==}
@@ -8291,7 +8272,7 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.40.0(eslint@7.32.0)(typescript@4.8.4)
+      '@typescript-eslint/parser': 5.40.0(eslint@7.32.0)(typescript@4.9.5)
       debug: 3.2.7
       eslint: 7.32.0
       eslint-import-resolver-node: 0.3.6
@@ -8310,7 +8291,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.21.0
-      '@babel/eslint-parser': 7.22.7(@babel/core@7.21.0)(eslint@7.32.0)
+      '@babel/eslint-parser': 7.22.7(@babel/core@7.22.5)(eslint@7.32.0)
       '@babel/plugin-proposal-decorators': 7.19.3(@babel/core@7.21.0)
       '@ember-data/rfc395-data': 0.0.4
       ember-rfc176-data: 0.3.17
@@ -8358,7 +8339,7 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.40.0(eslint@7.32.0)(typescript@4.8.4)
+      '@typescript-eslint/parser': 5.40.0(eslint@7.32.0)(typescript@4.9.5)
       array-includes: 3.1.5
       array.prototype.flat: 1.3.0
       debug: 2.6.9(supports-color@8.1.1)
