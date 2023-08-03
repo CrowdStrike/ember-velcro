@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "ember-modifier": "^3.2.7",
-    "ember-velcro": "link:../ember-velcro"
+    "ember-velcro": "workspace:*"
   },
   "dependenciesMeta": {
     "ember-velcro": {
