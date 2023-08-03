@@ -12,3 +12,10 @@ runs:
     - name: 'Install dependencies'
       shell: 'bash'
       run: pnpm install
+    # TODO: use https://github.com/NullVoxPopuli/pnpm-sync-dependencies-meta-injected
+    - name: build
+      shell: 'bash'
+      run: pnpm build
+    - name: force re-linking
+      shell: 'bash'
+      run: pnpm i -f
