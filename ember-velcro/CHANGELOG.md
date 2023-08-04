@@ -1,13 +1,19 @@
 ## 2.1.0
 
+## 2.1.1
+
+### Patch Changes
+
+- [#110](https://github.com/CrowdStrike/ember-velcro/pull/110) [`39b6069`](https://github.com/CrowdStrike/ember-velcro/commit/39b60690d6b130180166bd67891ed6d7617c4074) Thanks [@NullVoxPopuli](https://github.com/NullVoxPopuli)! - Added emberv5 peer dependency support.
+
 ### Minor Changes
 
 - [#85](https://github.com/CrowdStrike/ember-velcro/pull/85) [`f53b03f`](https://github.com/CrowdStrike/ember-velcro/commit/f53b03fa16b2e33a7fb4e02fcf2368587df678ae) Thanks [@ynotdraw](https://github.com/ynotdraw)! - A `template-registry` is now exported from `ember-velcro` to use with [Glint](https://typed-ember.gitbook.io/glint/). To use it in your apps and addons, add the following to your existing registry:
 
   ```ts
-  import type EmberVelcroRegistry from 'ember-velcro/template-registry';
+  import type EmberVelcroRegistry from "ember-velcro/template-registry";
 
-  declare module '@glint/environment-ember-loose/registry' {
+  declare module "@glint/environment-ember-loose/registry" {
     export default interface Registry extends EmberVelcroRegistry {
       // Other items here
     }
