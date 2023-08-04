@@ -28,7 +28,8 @@
     "try:embroider:test": "ember try:one embroider-optimized"
   },
   "dependencies": {
-    "ember-velcro": "link:../ember-velcro"
+    "ember-modifier": "^3.2.7",
+    "ember-velcro": "workspace:*"
   },
   "dependenciesMeta": {
     "ember-velcro": {
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
+    "@babel/eslint-parser": "^7.11.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/string": "^3.1.1",
     "@ember/test-helpers": "^2.9.4",
@@ -73,7 +75,6 @@
     "@types/ember__utils": "^4.0.3",
     "@types/qunit": "^2.19.6",
     "@types/rsvp": "^4.0.4",
-    "@babel/eslint-parser": "^7.11.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^2.6.3",
     "ember-cli": "~4.12.1",
