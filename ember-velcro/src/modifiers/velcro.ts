@@ -1,7 +1,7 @@
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
-import { autoUpdate, computePosition, flip, hide, offset, shift } from '@floating-ui/dom';
+import { autoUpdate, computePosition, flip, hide, offset, shift, autoPlacement } from '@floating-ui/dom';
 import Modifier from 'ember-modifier';
 
 import { velcroData } from '../middleware/velcro-data';
@@ -25,6 +25,7 @@ export interface Signature {
       flipOptions?: TODO;
       shiftOptions?: TODO;
       hideOptions?: TODO;
+      autoPlacement?: true | Parameters<typeof autoPlacement>;
       middleware?: Middleware[];
       setVelcroData?: Middleware['fn'];
     };
@@ -40,6 +41,7 @@ export default class VelcroModifier extends Modifier<Signature> {
       offsetOptions = 0,
       placement = 'bottom',
       flipOptions,
+      autoPlacement: autoPlacementOptions,
       shiftOptions,
       middleware = [],
       setVelcroData,
@@ -77,7 +79,7 @@ export default class VelcroModifier extends Modifier<Signature> {
       let { x, y, middlewareData } = await computePosition(referenceElement, floatingElement, {
         middleware: [
           offset(offsetOptions),
-          flip(flipOptions),
+          (autoPlacementOptions ? autoPlacement(autoPlacementOptions) : flip(flipOptions)),
           shift(shiftOptions),
           ...middleware,
           hide({ strategy: 'referenceHidden' }),
