@@ -38,7 +38,7 @@ interface HookSignature {
   Element: HTMLElement | SVGElement;
 }
 
-export default class VelcroComponent extends Component<Signature> {
+export default class Velcro extends Component<Signature> {
   @tracked hook?: HTMLElement | SVGElement = undefined;
 
   // set by VelcroModifier
