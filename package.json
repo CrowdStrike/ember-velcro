@@ -10,7 +10,6 @@
     "test": "pnpm --filter test-app test",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "ci:update": "npx ember-ci-update",
     "release": "changeset publish"
   },
   "dependencies": {
