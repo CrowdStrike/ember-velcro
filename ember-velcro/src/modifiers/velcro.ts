@@ -91,9 +91,12 @@ export default class VelcroModifier extends Modifier<Signature> {
       Object.assign(floatingElement.style, {
         top: `${y}px`,
         left: `${x}px`,
+        margin: 0,
       });
       setVelcroData?.(middlewareData.metadata);
     };
+
+    update();
 
     let cleanup = autoUpdate(referenceElement, floatingElement, update);
 

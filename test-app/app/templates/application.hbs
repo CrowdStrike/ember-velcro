@@ -23,8 +23,8 @@
 
 
   <Toggler as |x|>
-    <Velcro as |velcro|>
-      <button class="hook" {{velcro.hook}} {{on 'click' x.toggle}}>toggle</button>
+    <Velcro @offsetOptions={{8}} as |velcro|>
+      <button type="button" class="hook" {{velcro.hook}} {{on 'click' x.toggle}}>toggle</button>
       {{#if x.isActive}}
         <dialog open {{velcro.loop}}>Velcro</dialog>
       {{/if}}
