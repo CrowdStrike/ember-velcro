@@ -7,16 +7,30 @@
   </header>
 
   <Velcro as |velcro|>
-    <p {{velcro.hook}}>
+    <p class="hook" {{velcro.hook}}>
       Hook (modifier)
     </p>
-    <div {{velcro.loop}}>
+    <div class="loop" {{velcro.loop}}>
       Loop (modifier)
     </div>
   </Velcro>
 
   <Velcro as |velcro|>
-    <p {{velcro.hook}}>Velcro target</p>
-    <p {{velcro.loop}}>Velcro</p>
+    <p class="hook" {{velcro.hook}}>Velcro target</p>
+    <p class="loop" {{velcro.loop}}>Velcro</p>
   </Velcro>
+
+
+  <Toggler as |x|>
+    <Velcro as |velcro|>
+      <button class="hook" {{velcro.hook}} {{on 'click' x.toggle}}>toggle</button>
+      {{#if x.isActive}}
+        <dialog open {{velcro.loop}}>Velcro</dialog>
+      {{/if}}
+    </Velcro>
+  </Toggler>
 </div>
+
+<style>
+
+</style>

@@ -68,13 +68,13 @@ export default class VelcroModifier extends Modifier<Signature> {
     assert('@middleware must be an array of one or more objects', Array.isArray(middleware));
 
     Object.assign(floatingElement.style, {
-      position: strategy,
+      position: 'absolute',
       top: '0',
       left: '0',
     });
 
     let update = async () => {
-      let { x, y, middlewareData } = await computePosition(referenceElement, floatingElement, {
+      let { middlewareData } = await computePosition(referenceElement, floatingElement, {
         middleware: [
           offset(offsetOptions),
           flip(flipOptions),
@@ -86,12 +86,6 @@ export default class VelcroModifier extends Modifier<Signature> {
         ],
         placement,
         strategy,
-      });
-
-      Object.assign(floatingElement.style, {
-        strategy,
-        transform: `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`,
-        visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible',
       });
 
       setVelcroData?.(middlewareData.metadata);
