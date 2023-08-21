@@ -21,7 +21,6 @@
     <p class="loop" {{velcro.loop}}>Velcro</p>
   </Velcro>
 
-
   <Toggler as |x|>
     <Velcro @offsetOptions={{8}} as |velcro|>
       <button type="button" class="hook" {{velcro.hook}} {{on 'click' x.toggle}}>toggle</button>
@@ -32,22 +31,23 @@
   </Toggler>
 </div>
 
+{{!-- template-lint-disable no-whitespace-for-layout --}}
 <style>
-    .loop, dialog  {
-      width: max-content;
-      border: 1px solid;
-      font-weight: bold;
-      background: #eee;
-      padding: 5px;
-      border-radius: 4px;
-      font-size: 90%;
-      filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.4));
-      z-index: 10;
-    }
-    .hook {
-      padding: 0.5rem;
-      border: 1px solid;
-      display: inline-block;
-      color: black;
-    }
+  .loop, dialog  {
+    width: max-content;
+    border: 1px solid;
+    font-weight: bold;
+    background: #eee;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 90%;
+    filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.4));
+    z-index: 10;
+  }
+  .hook {
+    padding: 0.5rem;
+    border: 1px solid;
+    display: inline-block;
+    color: black;
+  }
 </style>
