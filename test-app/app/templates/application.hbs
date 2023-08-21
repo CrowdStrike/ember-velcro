@@ -1,3 +1,4 @@
+{{!-- template-lint-disable no-forbidden-elements --}}
 {{page-title "Ember Velcro - Ember addon for Floating UI"}}
 
 <div class="w-screen min-h-screen px-4 mx-auto max-w-screen-2xl">
@@ -32,5 +33,21 @@
 </div>
 
 <style>
-
+    .loop, dialog  {
+      width: max-content;
+      border: 1px solid;
+      font-weight: bold;
+      background: #eee;
+      padding: 5px;
+      border-radius: 4px;
+      font-size: 90%;
+      filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.4));
+      z-index: 10;
+    }
+    .hook {
+      padding: 0.5rem;
+      border: 1px solid;
+      display: inline-block;
+      color: black;
+    }
 </style>
