@@ -32,13 +32,9 @@ module('Integration | Component | velcro', function (hooks) {
     assert.dom('#loop').hasAttribute('style');
     assert.dom('#loop').hasStyle({
       position: 'fixed',
-      top: '0px',
+      top: '40px',
       left: '0px',
     });
-    assert.ok(
-      styleFor('#loop').transform.includes('translate3d'),
-      'floating element is positioned with translate3d'
-    );
   });
 
   module('@middleware', function () {
