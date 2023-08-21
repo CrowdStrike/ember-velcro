@@ -24,5 +24,9 @@
     "overrides": {
       "@types/eslint": "^7.29.0"
     }
+  },
+  "volta": {
+    "node": "18.17.1",
+    "pnpm": "8.6.12"
   }
 }
