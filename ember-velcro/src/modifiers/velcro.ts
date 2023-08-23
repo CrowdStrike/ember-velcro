@@ -74,7 +74,7 @@ export default class VelcroModifier extends Modifier<Signature> {
     });
 
     let update = async () => {
-      let { x, y, middlewareData } = await computePosition(referenceElement, floatingElement, {
+      let { middlewareData, x, y } = await computePosition(referenceElement, floatingElement, {
         middleware: [
           offset(offsetOptions),
           flip(flipOptions),
@@ -89,13 +89,14 @@ export default class VelcroModifier extends Modifier<Signature> {
       });
 
       Object.assign(floatingElement.style, {
-        strategy,
-        transform: `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`,
-        visibility: middlewareData.hide?.referenceHidden ? 'hidden' : 'visible',
+        top: `${y}px`,
+        left: `${x}px`,
+        margin: 0,
       });
-
       setVelcroData?.(middlewareData.metadata);
     };
+
+    update();
 
     let cleanup = autoUpdate(referenceElement, floatingElement, update);
 

@@ -1,10 +1,10 @@
-import { find, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 
 import { Velcro } from 'ember-velcro';
 
-import { styleFor, resetTestingContainerDimensions } from '../velcro-test-helpers';
+import { resetTestingContainerDimensions } from '../velcro-test-helpers';
 
 module('Integration | Component | velcro (strict mode)', function (hooks) {
   setupRenderingTest(hooks);
@@ -32,12 +32,8 @@ module('Integration | Component | velcro (strict mode)', function (hooks) {
     assert.dom('#loop').hasAttribute('style');
     assert.dom('#loop').hasStyle({
       position: 'fixed',
-      top: '0px',
+      top: '40px',
       left: '0px',
     });
-    assert.ok(
-      styleFor('#loop').transform.includes('translate3d'),
-      'floating element is positioned with translate3d'
-    );
   });
 });

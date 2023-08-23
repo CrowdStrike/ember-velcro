@@ -1,3 +1,4 @@
+{{!-- template-lint-disable no-forbidden-elements --}}
 {{page-title "Ember Velcro - Ember addon for Floating UI"}}
 
 <div class="w-screen min-h-screen px-4 mx-auto max-w-screen-2xl">
@@ -7,16 +8,46 @@
   </header>
 
   <Velcro as |velcro|>
-    <p {{velcro.hook}}>
+    <p class="hook" {{velcro.hook}}>
       Hook (modifier)
     </p>
-    <div {{velcro.loop}}>
+    <div class="loop" {{velcro.loop}}>
       Loop (modifier)
     </div>
   </Velcro>
 
   <Velcro as |velcro|>
-    <p {{velcro.hook}}>Velcro target</p>
-    <p {{velcro.loop}}>Velcro</p>
+    <p class="hook" {{velcro.hook}}>Velcro target</p>
+    <p class="loop" {{velcro.loop}}>Velcro</p>
   </Velcro>
+
+  <Toggler as |x|>
+    <Velcro @offsetOptions={{8}} as |velcro|>
+      <button type="button" class="hook" {{velcro.hook}} {{on 'click' x.toggle}}>toggle</button>
+      {{#if x.isActive}}
+        <dialog open {{velcro.loop}}>Velcro</dialog>
+      {{/if}}
+    </Velcro>
+  </Toggler>
 </div>
+
+{{!-- template-lint-disable no-whitespace-for-layout --}}
+<style>
+  .loop, dialog  {
+    width: max-content;
+    border: 1px solid;
+    font-weight: bold;
+    background: #eee;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 90%;
+    filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.4));
+    z-index: 10;
+  }
+  .hook {
+    padding: 0.5rem;
+    border: 1px solid;
+    display: inline-block;
+    color: black;
+  }
+</style>
