@@ -1,5 +1,13 @@
 ## 2.1.0
 
+## 2.1.2
+
+### Patch Changes
+
+- [#117](https://github.com/CrowdStrike/ember-velcro/pull/117) [`52bc809`](https://github.com/CrowdStrike/ember-velcro/commit/52bc809d6bdf154daa3e8fe7aed0b78992a7739a) Thanks [@NullVoxPopuli](https://github.com/NullVoxPopuli)! - Removed redundant suffix to optimize devtool appearance.
+
+- [#124](https://github.com/CrowdStrike/ember-velcro/pull/124) [`d3efa09`](https://github.com/CrowdStrike/ember-velcro/commit/d3efa09289fcb86b8819986f8a5c854313cb79e2) Thanks [@NullVoxPopuli](https://github.com/NullVoxPopuli)! - Removed CSS transform in favor of top+left positioning.
+
 ## 2.1.1
 
 ### Patch Changes

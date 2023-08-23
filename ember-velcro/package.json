@@ -1,6 +1,6 @@
 {
   "name": "ember-velcro",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Ember Velcro sticks one element to another with Floating UI.",
   "keywords": [
     "ember-addon"
