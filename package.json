@@ -10,7 +10,6 @@
     "test": "pnpm --filter test-app test",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "ci:update": "npx ember-ci-update",
     "release": "changeset publish"
   },
   "dependencies": {
@@ -24,5 +23,9 @@
     "overrides": {
       "@types/eslint": "^7.29.0"
     }
+  },
+  "volta": {
+    "node": "18.17.1",
+    "pnpm": "8.6.12"
   }
 }
