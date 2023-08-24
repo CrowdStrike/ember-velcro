@@ -1,5 +1,11 @@
 ## 2.1.0
 
+## 2.1.3
+
+### Patch Changes
+
+- [#128](https://github.com/CrowdStrike/ember-velcro/pull/128) [`21c18b4`](https://github.com/CrowdStrike/ember-velcro/commit/21c18b4eddf386caed54379fe75f8354ef2a777e) Thanks [@NullVoxPopuli](https://github.com/NullVoxPopuli)! - Fixes an issue with visibility
+
 ## 2.1.2
 
 ### Patch Changes
