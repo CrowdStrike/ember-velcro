@@ -88,11 +88,15 @@ export default class VelcroModifier extends Modifier<Signature> {
         strategy,
       });
 
+      const { referenceHidden } = middlewareData.hide;
+
       Object.assign(floatingElement.style, {
         top: `${y}px`,
         left: `${x}px`,
         margin: 0,
+        visibility: referenceHidden ? 'hidden' : 'visible',
       });
+
       setVelcroData?.(middlewareData.metadata);
     };
 
