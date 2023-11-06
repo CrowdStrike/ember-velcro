@@ -78,7 +78,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^8.0.0",
     "ember-cli-htmlbars": "^6.1.0",
-    "ember-source": "~5.3.0",
+    "ember-source": "~5.4.0",
     "ember-modifier": "^4.0.0",
     "ember-template-lint": "^4.10.1",
     "eslint": "^7.0.0",
