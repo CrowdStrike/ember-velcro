@@ -204,8 +204,8 @@ importers:
         specifier: ^2.2.58
         version: 2.2.60(@babel/eslint-parser@7.24.1)(typescript@4.9.5)
       '@tsconfig/ember':
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^3.0.0
+        version: 3.0.5
       '@types/ember':
         specifier: ^4.0.4
         version: 4.0.11(@babel/core@7.24.3)
@@ -4497,8 +4497,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /@tsconfig/ember@1.1.0:
-    resolution: {integrity: sha512-VzIrPO7ZpnIEmU+dJe3ubEPhxUIyavwIh2vxg8rXrwSnB99hdVcq0ZFPQ4KRP0LrSNzaPI1QA2sATIPwnBYPQg==}
+  /@tsconfig/ember@3.0.5:
+    resolution: {integrity: sha512-5fccd/42M+ejFxAqA8uN+ZlYPhIwZFM2f3xpkmvdyQVrgBkJnsWqnCEXCBfhi6d+fBVDNnRNWiUwczJyFzmK1Q==}
     dev: true
 
   /@types/acorn@4.0.6:
