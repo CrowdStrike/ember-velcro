@@ -29,7 +29,7 @@ importers:
         version: 1.8.3
       '@floating-ui/dom':
         specifier: ^1.0.1
-        version: 1.4.3
+        version: 1.6.3
       ember-functions-as-helper-polyfill:
         specifier: ^2.1.1
         version: 2.1.1(ember-source@5.6.0)
@@ -181,7 +181,7 @@ importers:
         version: 3.1.5(@embroider/core@3.2.1)(webpack@5.85.0)
       '@floating-ui/dom':
         specifier: ^1.4.3
-        version: 1.4.3
+        version: 1.6.3
       '@glimmer/component':
         specifier: ^1.1.2
         version: 1.1.2(@babel/core@7.24.3)
@@ -2943,13 +2943,19 @@ packages:
       - supports-color
     dev: true
 
-  /@floating-ui/core@1.3.1:
-    resolution: {integrity: sha512-Bu+AMaXNjrpjh41znzHqaz3r2Nr8hHuHZT6V2LBKMhyMl0FgKA62PNYbqnfgmzOhoWZj70Zecisbo4H1rotP5g==}
-
-  /@floating-ui/dom@1.4.3:
-    resolution: {integrity: sha512-nB/68NyaQlcdY22L+Fgd1HERQ7UGv7XFN+tPxwrEfQL4nKtAP/jIZnZtpUlXbtV+VEGHh6W/63Gy2C5biWI3sA==}
+  /@floating-ui/core@1.6.0:
+    resolution: {integrity: sha512-PcF++MykgmTj3CIyOQbKA/hDzOAiqI3mhuoN44WRCopIs1sgoDoU4oty4Jtqaj/y3oDU6fnVSm4QG0a3t5i0+g==}
     dependencies:
-      '@floating-ui/core': 1.3.1
+      '@floating-ui/utils': 0.2.1
+
+  /@floating-ui/dom@1.6.3:
+    resolution: {integrity: sha512-RnDthu3mzPlQ31Ss/BTwQ1zjzIhr3lk1gZB1OC56h/1vEtaXkESrOqL5fQVMfXpwGtRwX+YsZBdyHtJMQnkArw==}
+    dependencies:
+      '@floating-ui/core': 1.6.0
+      '@floating-ui/utils': 0.2.1
+
+  /@floating-ui/utils@0.2.1:
+    resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
 
   /@glimmer/compiler@0.84.2:
     resolution: {integrity: sha512-rU8qpqbqxIPwrEQH82yDDFi1hgv6ud1agYexmnmCXlaLS5uCVATJAqKsVozc7aHOgmmF4Ukd/LoF4NYfGr8X3w==}
@@ -16464,7 +16470,7 @@ packages:
       ember-source: ^3.28.0 || ^4.0.0 || >= 5.0.0
     dependencies:
       '@embroider/addon-shim': 1.8.3
-      '@floating-ui/dom': 1.4.3
+      '@floating-ui/dom': 1.6.3
       ember-functions-as-helper-polyfill: 2.1.1(ember-source@5.2.0)
       ember-modifier: 4.1.0(ember-source@5.2.0)
       ember-source: 5.2.0(@babel/core@7.24.3)(@glimmer/component@1.1.2)(@glint/template@1.0.2)(rsvp@4.8.5)(webpack@5.85.0)
