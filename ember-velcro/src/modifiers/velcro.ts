@@ -6,7 +6,15 @@ import Modifier from 'ember-modifier';
 
 import { velcroData } from '../middleware/velcro-data';
 
-import type { FlipOptions, HideOptions, Middleware, Placement, OffsetOptions, ShiftOptions, Strategy } from '@floating-ui/dom';
+import type {
+  FlipOptions,
+  HideOptions,
+  Middleware,
+  OffsetOptions,
+  Placement,
+  ShiftOptions,
+  Strategy,
+} from '@floating-ui/dom';
 
 export interface Signature {
   Element: HTMLElement;
