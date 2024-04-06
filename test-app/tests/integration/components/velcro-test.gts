@@ -39,7 +39,7 @@ module('Integration | Component | velcro', function (hooks) {
   });
 
   test('it renders with setHook', async function (assert) {
-    let hookModifier = modifier((element, [setHook]) => {
+    let hookModifier = modifier((element: HTMLElement | SVGElement, [setHook]: [(element: HTMLElement | SVGElement) => void]) => {
       setHook(element);
     });
 
