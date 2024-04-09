@@ -6,13 +6,15 @@ import Modifier from 'ember-modifier';
 
 import { velcroData } from '../middleware/velcro-data';
 
-import type { Middleware, Placement, Strategy } from '@floating-ui/dom';
-
-/**
- * TODO: figure out how to get the real types out of @floating-ui/dom
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type TODO = any;
+import type {
+  FlipOptions,
+  HideOptions,
+  Middleware,
+  OffsetOptions,
+  Placement,
+  ShiftOptions,
+  Strategy,
+} from '@floating-ui/dom';
 
 export interface Signature {
   Element: HTMLElement;
@@ -20,11 +22,11 @@ export interface Signature {
     Positional: [referenceElement: string | HTMLElement | SVGElement];
     Named: {
       strategy?: Strategy;
-      offsetOptions?: TODO;
+      offsetOptions?: OffsetOptions;
       placement?: Placement;
-      flipOptions?: TODO;
-      shiftOptions?: TODO;
-      hideOptions?: TODO;
+      flipOptions?: FlipOptions;
+      shiftOptions?: ShiftOptions;
+      hideOptions?: HideOptions;
       middleware?: Middleware[];
       setVelcroData?: Middleware['fn'];
     };
