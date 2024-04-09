@@ -1,5 +1,13 @@
 ## 2.1.0
 
+## 2.2.0
+
+### Minor Changes
+
+- [#186](https://github.com/CrowdStrike/ember-velcro/pull/186) [`a5be92e`](https://github.com/CrowdStrike/ember-velcro/commit/a5be92e237656deb6c6896c0015db8de9fbe3608) Thanks [@miguelcobain](https://github.com/miguelcobain)! - Yields a `setHook` function back to consumers.
+
+- [#170](https://github.com/CrowdStrike/ember-velcro/pull/170) [`a1d7430`](https://github.com/CrowdStrike/ember-velcro/commit/a1d743070ff75adab70d3dad1f28dd197b52893d) Thanks [@johanrd](https://github.com/johanrd)! - Added types for `offsetOptions`, `flipOptions`, `shiftOptions`, and `hideOptions`.
+
 ## 2.1.3
 
 ### Patch Changes
