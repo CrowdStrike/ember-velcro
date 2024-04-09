@@ -25,6 +25,7 @@ interface Signature {
     default: [
       velcro: {
         hook: ModifierLike<HookSignature>;
+        setHook: (element: HTMLElement | SVGElement) => void;
         loop: ModifierLike<{
           Element: HTMLElement;
         }>;
@@ -46,9 +47,13 @@ export default class Velcro extends Component<Signature> {
 
   setVelcroData = (data: MiddlewareArguments) => (this.velcroData = data);
 
+  setHook = (element: HTMLElement | SVGElement) => {
+    this.hook = element;
+  };
+
   velcroHook = modifier<HookSignature>(
-    (element) => {
-      this.hook = element;
+    (element: HTMLElement | SVGElement) => {
+      this.setHook(element);
     },
     { eager: false }
   );

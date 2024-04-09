@@ -80,6 +80,46 @@ The `Velcro` component yields a single hash - 2 modifiers and 'velcro data':
 
 See [MiddlewareArguments](https://floating-ui.com/docs/middleware#middlewarearguments) for a description of each.
 
+<details>
+ <summary>You can also use `velcro.setHook` yielded function for more complex composibility scenarios. Expand to read more.</summary>
+
+## `setHook`
+
+Imagine you're writing a dropdown component with ember-velcro. You want to yield a `trigger` modifier that does two things:
+1. sets an element as the "hook" for ember-velcro
+2. attaches a click handler to toggle between the open/closed states
+
+Without the yielded `setHook` function, this would not be possible. With `setHook` however, we can pass that function to the modifier, and the modifier can call that function with the element.
+
+Such a dropdown component might look something like this:
+
+```gjs
+let myModifier = modifier((element, [setHook, handler]) => {
+  // call ember-velcro's setHook
+  setHook(element);
+
+  // other custom logic
+  element.addEventListener('click', handler);
+
+  return () => {
+    element.removeEventListener('click', handler);
+  };
+});
+
+<template>
+  <Velcro as |velcro|>
+    {{yield (hash
+      trigger=(modifier myModifier velcro.setHook onClick)
+    )}}
+  </Velcro>
+</template>
+```
+
+This is needed because, at the time of writing, there's no way in ember to combine two existing modifiers into a single one. You can check the relevant [pull request](https://github.com/CrowdStrike/ember-velcro/pull/186) for more information.
+
+
+</details>
+
 Compatibility
 ------------------------------------------------------------------------------
 
