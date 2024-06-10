@@ -106,7 +106,7 @@
     "eslint-plugin-qunit": "^7.3.1",
     "loader.js": "^4.7.0",
     "npm-run-all2": "^5.0.0",
-    "pnpm-sync-dependencies-meta-injected": "^0.0.10",
+    "pnpm-sync-dependencies-meta-injected": "^0.0.14",
     "prettier": "^2.7.1",
     "qunit": "^2.19.4",
     "qunit-dom": "^3.0.0",
