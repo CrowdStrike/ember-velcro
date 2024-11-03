@@ -32,7 +32,7 @@ importers:
         version: 1.8.3
       '@floating-ui/dom':
         specifier: ^1.0.1
-        version: 1.6.11
+        version: 1.6.12
       ember-functions-as-helper-polyfill:
         specifier: ^2.1.1
         version: 2.1.1(ember-source@5.12.0)
@@ -184,7 +184,7 @@ importers:
         version: 3.1.5(@embroider/core@3.2.1)(webpack@5.94.0)
       '@floating-ui/dom':
         specifier: ^1.4.3
-        version: 1.6.11
+        version: 1.6.12
       '@glimmer/component':
         specifier: ^1.1.2
         version: 1.1.2(@babel/core@7.26.0)
@@ -3746,8 +3746,8 @@ packages:
     dependencies:
       '@floating-ui/utils': 0.2.8
 
-  /@floating-ui/dom@1.6.11:
-    resolution: {integrity: sha512-qkMCxSR24v2vGkhYDo/UzxfJN3D4syqSjyuTFz6C7XcpU1pASPRieNI0Kj5VP3/503mOfYiGY891ugBX1GlABQ==}
+  /@floating-ui/dom@1.6.12:
+    resolution: {integrity: sha512-NP83c0HjokcGVEMeoStg317VD9W7eDlGK7457dMBANbKA6GJZdc7rjujdgqzTaz93jkGgc5P/jeWbaCHnMNc+w==}
     dependencies:
       '@floating-ui/core': 1.6.8
       '@floating-ui/utils': 0.2.8
@@ -16456,7 +16456,7 @@ packages:
       ember-source: ^3.28.0 || ^4.0.0 || >= 5.0.0
     dependencies:
       '@embroider/addon-shim': 1.8.3
-      '@floating-ui/dom': 1.6.11
+      '@floating-ui/dom': 1.6.12
       ember-functions-as-helper-polyfill: 2.1.1(ember-source@5.12.0)
       ember-modifier: 4.1.0(ember-source@5.12.0)
       ember-source: 5.12.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(rsvp@4.8.5)(webpack@5.94.0)
